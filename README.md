@@ -77,7 +77,7 @@ python3 paper/figures/fig_timeline.py paper/figures/timeline_data.json
 ```
 
 Not every number in `paper/numbers*.tex` appears in the paper: the files define 736 macros and the paper uses
-277, listed in `paper/USED_MACROS.txt`. The others are kept for the record, and a few measure something close to
+273, listed in `paper/USED_MACROS.txt`. The others are kept for the record, and a few measure something close to
 a number in the paper but not the same thing:
 - `\Shipped` (12.5%) is the share of runs *that submitted a patch* whose patch is broken; the paper's 12.3%
   (`\EndBrokenRunsShare`) is the share of *all kept runs* whose final code is broken.

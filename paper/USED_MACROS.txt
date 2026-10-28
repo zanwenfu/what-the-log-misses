@@ -217,13 +217,9 @@ numbers_review2.tex	RxTransientCI	32--45
 numbers_review2.tex	RxLastingRunsCI	20--32
 numbers_review2.tex	RxLastingUnseenCI	44--60
 numbers_review2.tex	RxTableModels	41
-numbers_review2.tex	RxTableModelsOld	28
-numbers_review2.tex	RxTableModelsNew	13
 numbers_review2.tex	RxNoSynN	605
 numbers_review2.tex	RxNoSynLoad	123
 numbers_review2.tex	RxNoSynTest	482
-numbers_review2.tex	RxNoSynOpen	139
-numbers_review2.tex	RxNoSynTestShare	80
 numbers_review2.tex	RxSynCheckRecallAll	50.8
 numbers_review2.tex	RxSynOrJSRecallStrat	85
 numbers_review2.tex	RxSynOrJSPrecStrat	44
