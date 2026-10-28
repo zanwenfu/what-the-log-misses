@@ -1,0 +1,107 @@
+{
+ "seed": 20261023,
+ "rule": "per language: sorted ids with non-empty PASS_TO_PASS, random.Random(seed).shuffle, first 7",
+ "languages": {
+  "js": [
+   "preactjs/preact",
+   "axios/axios",
+   "babel/babel",
+   "facebook/docusaurus",
+   "vuejs/core",
+   "mrdoob/three.js",
+   "immutable-js/immutable-js"
+  ],
+  "php": [
+   "laravel/framework",
+   "briannesbitt/carbon",
+   "php-cs-fixer/php-cs-fixer",
+   "phpoffice/phpspreadsheet"
+  ],
+  "ruby": [
+   "rubocop/rubocop",
+   "fluent/fluentd",
+   "fastlane/fastlane",
+   "jekyll/jekyll",
+   "faker-ruby/faker",
+   "jordansissel/fpm"
+  ]
+ },
+ "tasks": {
+  "js": [
+   "preactjs__preact-2896",
+   "preactjs__preact-4182",
+   "babel__babel-15445",
+   "preactjs__preact-4436",
+   "babel__babel-13928",
+   "vuejs__core-11899",
+   "preactjs__preact-3062"
+  ],
+  "php": [
+   "laravel__framework-53914",
+   "phpoffice__phpspreadsheet-3463",
+   "briannesbitt__carbon-3073",
+   "phpoffice__phpspreadsheet-3903",
+   "briannesbitt__carbon-3005",
+   "phpoffice__phpspreadsheet-4214",
+   "php-cs-fixer__php-cs-fixer-7635"
+  ],
+  "ruby": [
+   "rubocop__rubocop-13653",
+   "fastlane__fastlane-20642",
+   "jekyll__jekyll-8761",
+   "fluent__fluentd-3616",
+   "fastlane__fastlane-19304",
+   "fluent__fluentd-3917",
+   "jekyll__jekyll-8167"
+  ]
+ },
+ "submissions": [
+  "20260213_mini-v2.0.0a0_claude-4-5-haiku",
+  "20260213_mini-v2.0.0a0_claude-4-5-opus",
+  "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+  "20260213_mini-v2.0.0a0_claude-4-6-opus",
+  "20260213_mini-v2.0.0a0_deepseek-3-2",
+  "20260213_mini-v2.0.0a0_gemini-3-flash",
+  "20260213_mini-v2.0.0a0_gemini-3-pro",
+  "20260213_mini-v2.0.0a0_glm-5",
+  "20260213_mini-v2.0.0a0_gpt-5-2-high",
+  "20260213_mini-v2.0.0a0_gpt-5-mini",
+  "20260213_mini-v2.0.0a0_kimi-k2-5",
+  "20260216_mini-v2.0.0a0_minimax-2-5",
+  "20260220_mini-v2.0.0_gpt-5-2-codex",
+  "20260902_mini-v2.4.6_gemini-3-5-flash"
+ ],
+ "cells": 294,
+ "excluded": {
+  "babel__babel-15445": "the official test script rebuilds babel before every run (about 85 s per state against about 5 s for the other JavaScript tasks); replaced by the next task in the seeded order, as in the Verified sample",
+  "babel__babel-13928": "same"
+ },
+ "replacements": [
+  "facebook__docusaurus-10130",
+  "preactjs__preact-3689"
+ ],
+ "tasks_final": [
+  "briannesbitt__carbon-3005",
+  "briannesbitt__carbon-3073",
+  "facebook__docusaurus-10130",
+  "fastlane__fastlane-19304",
+  "fastlane__fastlane-20642",
+  "fluent__fluentd-3616",
+  "fluent__fluentd-3917",
+  "jekyll__jekyll-8167",
+  "jekyll__jekyll-8761",
+  "laravel__framework-53914",
+  "php-cs-fixer__php-cs-fixer-7635",
+  "phpoffice__phpspreadsheet-3463",
+  "phpoffice__phpspreadsheet-3903",
+  "phpoffice__phpspreadsheet-4214",
+  "preactjs__preact-2896",
+  "preactjs__preact-3062",
+  "preactjs__preact-3689",
+  "preactjs__preact-4182",
+  "preactjs__preact-4436",
+  "rubocop__rubocop-13653",
+  "vuejs__core-11899"
+ ],
+ "cells_final": 294
+}

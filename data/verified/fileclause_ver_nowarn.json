@@ -1,0 +1,552 @@
+{
+ "summary": {
+  "bench": "ver",
+  "breaks": 1192,
+  "flips": 47,
+  "no_log": 1,
+  "unseen_before": 661,
+  "unseen_after": 614,
+  "share_after": 51.5,
+  "ci_after": [
+   45.2,
+   59.7
+  ],
+  "unseen_no_tests_after": 99.0,
+  "unseen_open_after": 113,
+  "by_kind": {
+   "test": 27,
+   "load": 20
+  }
+ },
+ "flips": [
+  {
+   "submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+   "task": "sympy__sympy-13091",
+   "onset": 17,
+   "kind": "test",
+   "at": 21,
+   "files": [
+    "basic.py"
+   ],
+   "line": "Sympify failed: SympifyError: Foo(1)"
+  },
+  {
+   "submission": "20250726_mini-v1.0.0_gemini-2.5-flash",
+   "task": "astropy__astropy-14182",
+   "onset": 4,
+   "kind": "load",
+   "at": 6,
+   "files": [
+    "rst.py"
+   ],
+   "line": "IndentationError: unexpected indent"
+  },
+  {
+   "submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+   "task": "sympy__sympy-20438",
+   "onset": 61,
+   "kind": "test",
+   "at": 64,
+   "files": [
+    "sets.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20250726_mini-v1.0.0_o3-2025-04-16",
+   "task": "astropy__astropy-14182",
+   "onset": 43,
+   "kind": "test",
+   "at": 45,
+   "files": [
+    "rst.py"
+   ],
+   "line": "AttributeError: 'QTable' object has no attribute 'insert'"
+  },
+  {
+   "submission": "20250726_mini-v1.0.0_o3-2025-04-16",
+   "task": "sympy__sympy-12489",
+   "onset": 19,
+   "kind": "test",
+   "at": 20,
+   "files": [
+    "permutations.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20250726_mini-v1.0.0_o3-2025-04-16",
+   "task": "sympy__sympy-13091",
+   "onset": 17,
+   "kind": "test",
+   "at": 19,
+   "files": [
+    "basic.py"
+   ],
+   "line": "SympifyError raised"
+  },
+  {
+   "submission": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+   "task": "scikit-learn__scikit-learn-14629",
+   "onset": 18,
+   "kind": "load",
+   "at": 22,
+   "files": [
+    "_validation.py"
+   ],
+   "line": "ImportError: cannot import name 'MultiOutputClassifier'"
+  },
+  {
+   "submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+   "task": "django__django-16502",
+   "onset": 59,
+   "kind": "load",
+   "at": 64,
+   "files": [
+    "wsgi.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+   "task": "sympy__sympy-12489",
+   "onset": 171,
+   "kind": "test",
+   "at": 172,
+   "files": [
+    "permutations.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+   "task": "sympy__sympy-13091",
+   "onset": 12,
+   "kind": "test",
+   "at": 91,
+   "files": [
+    "basic.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+   "task": "astropy__astropy-14182",
+   "onset": 28,
+   "kind": "load",
+   "at": 30,
+   "files": [
+    "rst.py"
+   ],
+   "line": "IndentationError: expected an indented block"
+  },
+  {
+   "submission": "20250807_mini-v1.7.0_gpt-5",
+   "task": "sympy__sympy-23950",
+   "onset": 15,
+   "kind": "load",
+   "at": 15,
+   "files": [
+    "contains.py"
+   ],
+   "line": "ERROR: ImportError cannot import name 'Contains' from partially initialized module 'sympy.sets.contains' (most likely due to a circular import) (/testbed/sympy/"
+  },
+  {
+   "submission": "20250807_mini-v1.7.0_gpt-5-nano",
+   "task": "astropy__astropy-14182",
+   "onset": 14,
+   "kind": "load",
+   "at": 15,
+   "files": [
+    "rst.py"
+   ],
+   "line": "SyntaxError: EOL while scanning string literal"
+  },
+  {
+   "submission": "20250807_mini-v1.7.0_gpt-5-nano",
+   "task": "pylint-dev__pylint-6528",
+   "onset": 28,
+   "kind": "test",
+   "at": 31,
+   "files": [
+    "__init__.py",
+    "pylinter.py"
+   ],
+   "line": "ImportError while importing test module '/testbed/tests/primer/test_primer_external.py'."
+  },
+  {
+   "submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+   "task": "scikit-learn__scikit-learn-14629",
+   "onset": 13,
+   "kind": "load",
+   "at": 34,
+   "files": [
+    "_validation.py"
+   ],
+   "line": "ImportError: cannot import name 'MultiOutputClassifier'"
+  },
+  {
+   "submission": "20250807_mini-v1.7.0_kimi-k2-instruct",
+   "task": "django__django-15375",
+   "onset": 36,
+   "kind": "test",
+   "at": 41,
+   "files": [
+    "query.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20250822_mini-v1.9.1_glm-4.5",
+   "task": "django__django-11490",
+   "onset": 11,
+   "kind": "test",
+   "at": 17,
+   "files": [
+    "compiler.py"
+   ],
+   "line": "raise DatabaseError('ORDER BY term does not match any column in the result set.')"
+  },
+  {
+   "submission": "20251124_mini-v1.17.0_minimax-m2",
+   "task": "django__django-11490",
+   "onset": 27,
+   "kind": "test",
+   "at": 56,
+   "files": [
+    "compiler.py"
+   ],
+   "line": "raise DatabaseError('ORDER BY term does not match any column in the result set.')"
+  },
+  {
+   "submission": "20251124_mini-v1.17.0_minimax-m2",
+   "task": "sympy__sympy-13091",
+   "onset": 107,
+   "kind": "test",
+   "at": 108,
+   "files": [
+    "numbers.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20251201_mini-v1.17.1_glm-4.6",
+   "task": "django__django-11490",
+   "onset": 6,
+   "kind": "test",
+   "at": 17,
+   "files": [
+    "compiler.py"
+   ],
+   "line": "raise DatabaseError('ORDER BY term does not match any column in the result set.')"
+  },
+  {
+   "submission": "20251201_mini-v1.17.1_glm-4.6",
+   "task": "django__django-11490",
+   "onset": 21,
+   "kind": "test",
+   "at": 22,
+   "files": [
+    "compiler.py"
+   ],
+   "line": "raise DatabaseError('ORDER BY term does not match any column in the result set.')"
+  },
+  {
+   "submission": "20251201_mini-v1.17.1_glm-4.6",
+   "task": "pylint-dev__pylint-6528",
+   "onset": 69,
+   "kind": "load",
+   "at": 70,
+   "files": [
+    "pylinter.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20251201_mini-v1.17.1_glm-4.6",
+   "task": "pylint-dev__pylint-6528",
+   "onset": 91,
+   "kind": "load",
+   "at": 98,
+   "files": [
+    "pylinter.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20251201_mini-v1.17.1_glm-4.6",
+   "task": "sympy__sympy-13091",
+   "onset": 42,
+   "kind": "test",
+   "at": 47,
+   "files": [
+    "basic.py"
+   ],
+   "line": "SyntaxError: invalid syntax (<string>, line 1)"
+  },
+  {
+   "submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+   "task": "django__django-15037",
+   "onset": 32,
+   "kind": "test",
+   "at": 73,
+   "files": [
+    "fix_inspectdb_v3.py",
+    "inspectdb.py"
+   ],
+   "line": "NameError: name 'connections' is not defined"
+  },
+  {
+   "submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+   "task": "django__django-15037",
+   "onset": 89,
+   "kind": "test",
+   "at": 96,
+   "files": [
+    "apply_fix.py",
+    "inspectdb.py"
+   ],
+   "line": "KeyError: 'other_id'"
+  },
+  {
+   "submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+   "task": "django__django-15375",
+   "onset": 18,
+   "kind": "test",
+   "at": 19,
+   "files": [
+    "fix.py",
+    "query.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+   "task": "sympy__sympy-13091",
+   "onset": 54,
+   "kind": "test",
+   "at": 66,
+   "files": [
+    "numbers.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+   "task": "scikit-learn__scikit-learn-14629",
+   "onset": 29,
+   "kind": "test",
+   "at": 61,
+   "files": [
+    "_validation.py",
+    "apply_fix.py"
+   ],
+   "line": "it would raise: AttributeError: 'MultiOutputClassifier' object has no attribute 'classes_'"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+   "task": "sympy__sympy-13091",
+   "onset": 42,
+   "kind": "test",
+   "at": 49,
+   "files": [
+    "apply_changes.py",
+    "basic.py",
+    "numbers.py"
+   ],
+   "line": "ImportError: cannot import name 'Mapping' from 'collections' (/opt/miniconda3/lib/python3.11/collections/__init__.py)"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+   "task": "sphinx-doc__sphinx-8548",
+   "onset": 54,
+   "kind": "test",
+   "at": 86,
+   "files": [
+    "importer.py",
+    "modify_importer.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+   "task": "sympy__sympy-12489",
+   "onset": 116,
+   "kind": "load",
+   "at": 117,
+   "files": [
+    "permutations.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "task": "astropy__astropy-14182",
+   "onset": 38,
+   "kind": "load",
+   "at": 39,
+   "files": [
+    "function_helpers.py"
+   ],
+   "line": "raise AttributeError(f\"module {__name__!r} has no attribute {attr!r}\")"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "task": "scikit-learn__scikit-learn-14629",
+   "onset": 28,
+   "kind": "load",
+   "at": 28,
+   "files": [
+    "__init__.py",
+    "reproduction.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "task": "scikit-learn__scikit-learn-14983",
+   "onset": 33,
+   "kind": "load",
+   "at": 34,
+   "files": [
+    "__init__.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "task": "sphinx-doc__sphinx-8269",
+   "onset": 29,
+   "kind": "load",
+   "at": 31,
+   "files": [
+    "linkcheck.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "task": "sympy__sympy-13091",
+   "onset": 11,
+   "kind": "load",
+   "at": 12,
+   "files": [
+    "basic.py"
+   ],
+   "line": "ImportError: cannot import name 'defaultdict' from 'collections.abc' (/opt/miniconda3/lib/python3.11/collections/abc.py)"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "task": "sympy__sympy-13091",
+   "onset": 38,
+   "kind": "test",
+   "at": 47,
+   "files": [
+    "basic.py"
+   ],
+   "line": "f < s raised TypeError: Invalid comparison of complex x"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gpt-5-2-high",
+   "task": "sphinx-doc__sphinx-8548",
+   "onset": 48,
+   "kind": "test",
+   "at": 51,
+   "files": [
+    "__init__.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_gpt-5-mini",
+   "task": "pydata__xarray-6744",
+   "onset": 10,
+   "kind": "test",
+   "at": 11,
+   "files": [
+    "rolling.py"
+   ],
+   "line": "raise ValueError(\"__iter__ is only supported for 1d-rolling\")"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+   "task": "sympy__sympy-13091",
+   "onset": 20,
+   "kind": "load",
+   "at": 21,
+   "files": [
+    "basic.py"
+   ],
+   "line": "ImportError: cannot import name 'defaultdict' from 'collections.abc' (/opt/miniconda3/lib/python3.11/collections/abc.py)"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+   "task": "sympy__sympy-13091",
+   "onset": 41,
+   "kind": "test",
+   "at": 52,
+   "files": [
+    "numbers.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+   "task": "django__django-16315",
+   "onset": 27,
+   "kind": "load",
+   "at": 30,
+   "files": [
+    "compiler.py",
+    "patch.py"
+   ],
+   "line": "TypeError: DatabaseOperations.on_conflict_suffix_sql() takes 5 positional arguments but 6 were given"
+  },
+  {
+   "submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+   "task": "pylint-dev__pylint-6528",
+   "onset": 63,
+   "kind": "test",
+   "at": 95,
+   "files": [
+    "__init__.py",
+    "fix.py",
+    "pylinter.py"
+   ],
+   "line": "Traceback (most recent call last):"
+  },
+  {
+   "submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+   "task": "scikit-learn__scikit-learn-14629",
+   "onset": 33,
+   "kind": "load",
+   "at": 34,
+   "files": [
+    "__init__.py"
+   ],
+   "line": "raise AttributeError(__former_attrs__[attr])"
+  },
+  {
+   "submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+   "task": "sphinx-doc__sphinx-8548",
+   "onset": 88,
+   "kind": "load",
+   "at": 89,
+   "files": [
+    "__init__.py"
+   ],
+   "line": "SyntaxError: invalid syntax. Perhaps you forgot a comma?"
+  },
+  {
+   "submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+   "task": "sphinx-doc__sphinx-8548",
+   "onset": 94,
+   "kind": "load",
+   "at": 95,
+   "files": [
+    "__init__.py"
+   ],
+   "line": "SyntaxError: invalid syntax. Perhaps you forgot a comma?"
+  }
+ ]
+}

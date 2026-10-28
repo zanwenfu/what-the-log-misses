@@ -1,0 +1,26 @@
+{
+ "instance_id": "astropy__astropy-14508",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 3,
+    "kind": "test"
+   },
+   {
+    "onset_cmd": 5,
+    "repair_cmd": null,
+    "kind": "test"
+   }
+  ],
+  "exposure": "3/6"
+ },
+ "commands": [
+  "grep -n 'T or F' astropy/io/fits/card.py",
+  "sed -i 's/:>20}\"  # T or F/:<20}\"  # T or F/' astropy/io/fits/card.py",
+  "sed -i 's/:<20}\"  # T or F/:>20}\"  # T or F/' astropy/io/fits/card.py",
+  "ls astropy/io/fits/tests | head",
+  "sed -i 's/:>20}\"  # T or F/:<20}\"  # T or F/' astropy/io/fits/card.py",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

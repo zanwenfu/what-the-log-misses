@@ -1,0 +1,22 @@
+{
+ "instance_id": "sympy__sympy-12489",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 6,
+    "kind": "test"
+   }
+  ],
+  "exposure": "4/7"
+ },
+ "commands": [
+  "grep -n 'def josephus\\|def from_sequence' sympy/combinatorics/permutations.py",
+  "sed -i 's/while len(Q) > max(s, 1):/while len(Q) > max(s, 2):/' sympy/combinatorics/permutations.py",
+  "sed -n '2700,2712p' sympy/combinatorics/permutations.py",
+  "sed -i 's/return ~Permutation(/return Permutation(/' sympy/combinatorics/permutations.py",
+  "sed -i 's/while len(Q) > max(s, 2):/while len(Q) > max(s, 1):/' sympy/combinatorics/permutations.py",
+  "git checkout -- sympy/combinatorics/permutations.py",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

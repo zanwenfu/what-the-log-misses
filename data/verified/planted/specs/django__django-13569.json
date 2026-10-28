@@ -1,0 +1,27 @@
+{
+ "instance_id": "django__django-13569",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 3,
+    "kind": "load"
+   },
+   {
+    "onset_cmd": 4,
+    "repair_cmd": 6,
+    "kind": "test"
+   }
+  ],
+  "exposure": "3/7"
+ },
+ "commands": [
+  "ls django/db/models/ | head",
+  "printf 'def broken(:\\n' >> django/db/models/aggregates.py",
+  "git checkout -- django/db/models/aggregates.py && git status --short",
+  "sed -i \"s/function = 'COUNT'/function = 'SUM'/\" django/db/models/aggregates.py",
+  "grep -n \"function = 'SUM'\" django/db/models/aggregates.py",
+  "git checkout -- django/db/models/aggregates.py && git status --short",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

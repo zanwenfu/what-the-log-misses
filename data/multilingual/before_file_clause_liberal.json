@@ -1,0 +1,1 @@
+{"breaks": 150, "unseen_rule": 116, "unseen_liberal": 91, "rule": "seen if any command between onset and repair mentions a test runner or test file (test, spec, jest, mocha, vitest, karma, phpunit, rspec, rake, pest, minitest, *_test.*, *.test.*, *_spec.*, *Test.php)"}

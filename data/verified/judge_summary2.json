@@ -1,0 +1,107 @@
+{
+ "sonnet": {
+  "unseen": {
+   "called": 115,
+   "n": 150,
+   "share": 77,
+   "ci": [
+    69,
+    83
+   ]
+  },
+  "unseen_load": {
+   "called": 51,
+   "n": 55,
+   "share": 93,
+   "ci": [
+    83,
+    97
+   ]
+  },
+  "unseen_test": {
+   "called": 64,
+   "n": 95,
+   "share": 67,
+   "ci": [
+    57,
+    76
+   ]
+  },
+  "seen": {
+   "called": 32,
+   "n": 40,
+   "share": 80,
+   "ci": [
+    65,
+    90
+   ]
+  },
+  "clean": {
+   "called": 12,
+   "n": 100,
+   "share": 12,
+   "ci": [
+    7,
+    20
+   ]
+  },
+  "unparsed": 0,
+  "calls": 290,
+  "cost": 6.86
+ },
+ "opus": {
+  "unseen": {
+   "called": 125,
+   "n": 149,
+   "share": 84,
+   "ci": [
+    77,
+    89
+   ]
+  },
+  "unseen_load": {
+   "called": 51,
+   "n": 55,
+   "share": 93,
+   "ci": [
+    83,
+    97
+   ]
+  },
+  "unseen_test": {
+   "called": 74,
+   "n": 94,
+   "share": 79,
+   "ci": [
+    69,
+    86
+   ]
+  },
+  "seen": {
+   "called": 34,
+   "n": 40,
+   "share": 85,
+   "ci": [
+    71,
+    93
+   ]
+  },
+  "clean": {
+   "called": 12,
+   "n": 100,
+   "share": 12,
+   "ci": [
+    7,
+    20
+   ]
+  },
+  "unparsed": 1,
+  "calls": 290,
+  "cost": 13.16
+ },
+ "agreement": {
+  "n": 289,
+  "same": 257
+ },
+ "unseen_missed_by_both": 19
+}

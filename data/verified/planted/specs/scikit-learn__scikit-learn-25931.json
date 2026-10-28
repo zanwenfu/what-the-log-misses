@@ -1,0 +1,27 @@
+{
+ "instance_id": "scikit-learn__scikit-learn-25931",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 3,
+    "kind": "test"
+   },
+   {
+    "onset_cmd": 4,
+    "repair_cmd": 6,
+    "kind": "load"
+   }
+  ],
+  "exposure": "3/7"
+ },
+ "commands": [
+  "grep -n 'mask_2' sklearn/ensemble/_iforest.py",
+  "sed -i 's/average_path_length\\[mask_2] = 1.0/average_path_length[mask_2] = 2.0/' sklearn/ensemble/_iforest.py",
+  "sed -i 's/average_path_length\\[mask_2] = 2.0/average_path_length[mask_2] = 1.0/' sklearn/ensemble/_iforest.py",
+  "sed -i 's/^from numbers import Integral, Real$/&\\nimport planted_missing_module/' sklearn/ensemble/_iforest.py",
+  "head -12 sklearn/ensemble/_iforest.py",
+  "git checkout -- sklearn/ensemble/_iforest.py",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

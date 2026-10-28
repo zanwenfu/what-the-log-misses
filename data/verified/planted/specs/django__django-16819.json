@@ -1,0 +1,22 @@
+{
+ "instance_id": "django__django-16819",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 4,
+    "kind": "test"
+   }
+  ],
+  "exposure": "2/7"
+ },
+ "commands": [
+  "grep -n 'app_label is None' django/db/migrations/optimizer.py",
+  "sed -i 's/if app_label is None:/if app_label is not None:/' django/db/migrations/optimizer.py",
+  "sed -n '28,34p' django/db/migrations/optimizer.py",
+  "sed -i 's/if app_label is not None:/if app_label is None:/' django/db/migrations/optimizer.py",
+  "printf '\\n# planted: harmless comment\\n' >> django/db/migrations/operations/models.py",
+  "git diff --stat",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

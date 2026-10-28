@@ -1,0 +1,72 @@
+{
+ "1": {
+  "v1_card": 8,
+  "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+  "task": "phpoffice__phpspreadsheet-4214",
+  "onset": "64",
+  "kind": "test"
+ },
+ "2": {
+  "v1_card": 3,
+  "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+  "task": "preactjs__preact-3062",
+  "onset": "21",
+  "kind": "load"
+ },
+ "3": {
+  "v1_card": 16,
+  "submission": "20260213_mini-v2.0.0a0_kimi-k2-5",
+  "task": "preactjs__preact-4436",
+  "onset": "24",
+  "kind": "load"
+ },
+ "4": {
+  "v1_card": 6,
+  "submission": "20260213_mini-v2.0.0a0_claude-4-6-opus",
+  "task": "php-cs-fixer__php-cs-fixer-7635",
+  "onset": "15",
+  "kind": "test"
+ },
+ "5": {
+  "v1_card": 18,
+  "submission": "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+  "task": "laravel__framework-53914",
+  "onset": "62",
+  "kind": "test"
+ },
+ "6": {
+  "v1_card": 7,
+  "submission": "20260220_mini-v2.0.0_gpt-5-2-codex",
+  "task": "phpoffice__phpspreadsheet-4214",
+  "onset": "37",
+  "kind": "test"
+ },
+ "7": {
+  "v1_card": 4,
+  "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+  "task": "jekyll__jekyll-8167",
+  "onset": "17",
+  "kind": "test"
+ },
+ "8": {
+  "v1_card": 9,
+  "submission": "20260213_mini-v2.0.0a0_glm-5",
+  "task": "php-cs-fixer__php-cs-fixer-7635",
+  "onset": "18",
+  "kind": "test"
+ },
+ "9": {
+  "v1_card": 11,
+  "submission": "20260213_mini-v2.0.0a0_gemini-3-pro",
+  "task": "preactjs__preact-4182",
+  "onset": "24",
+  "kind": "load"
+ },
+ "10": {
+  "v1_card": 1,
+  "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+  "task": "rubocop__rubocop-13653",
+  "onset": "27",
+  "kind": "load"
+ }
+}

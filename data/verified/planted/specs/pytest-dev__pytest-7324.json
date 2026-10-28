@@ -1,0 +1,27 @@
+{
+ "instance_id": "pytest-dev__pytest-7324",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 3,
+    "kind": "load"
+   },
+   {
+    "onset_cmd": 5,
+    "repair_cmd": 6,
+    "kind": "test"
+   }
+  ],
+  "exposure": "2/7"
+ },
+ "commands": [
+  "ls src/_pytest/mark/",
+  "printf 'def broken(:\\n' >> src/_pytest/mark/expression.py",
+  "sed -i '$ d' src/_pytest/mark/expression.py",
+  "grep -n 'NameConstant' src/_pytest/mark/expression.py",
+  "sed -i 's/ret = ast.NameConstant(False)/ret = ast.NameConstant(True)/' src/_pytest/mark/expression.py",
+  "git checkout -- src/_pytest/mark/expression.py",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "cards": 20,
+ "seen": 10,
+ "unseen": 10,
+ "labeller": "one author, blind to the rule's labels",
+ "answered": 20,
+ "agree": 16,
+ "cant_tell": 0,
+ "disagree": {
+  "human_unseen_rule_seen": 3,
+  "human_seen_rule_unseen": 1
+ },
+ "kappa": 0.6,
+ "labels": "round 1 firm answers + round 2 relabel (see rounds)",
+ "cards_whose_rule_label_changed": 1,
+ "relabel": "1U 2U 3U 4U 5S 6U 7U 8S 9S 10U",
+ "note": "Paper reports round 2: one author, blind to the rule's labels; the 10 cards first answered 'can't tell' were relabelled from fuller excerpts. Round 3 (written rule, all 20) is recorded for completeness. Scored against the corrected rule (edited-file condition).",
+ "rounds": [
+  {
+   "round": 1,
+   "sheet": "label-check-multilingual.html (20 cards, short excerpts)",
+   "labels": "1? 2U 3? 4? 5S 6? 7? 8? 9? 10U 11? 12S 13S 14U 15U 16? 17S 18? 19S 20S",
+   "answered": 10,
+   "agree": 8
+  },
+  {
+   "round": 2,
+   "sheet": "relabel-10-cards.html (the 10 'can't tell' cards, fuller excerpts)",
+   "labels": "1U 2U 3U 4U 5S 6U 7U 8S 9S 10U",
+   "combined_with_round_1": {
+    "answered": 20,
+    "agree": 16,
+    "kappa": 0.6
+   }
+  },
+  {
+   "round": 3,
+   "sheet": "label-check-multilingual-v2-20-cards.html (all 20, fuller excerpts, written statement of the rule at the top; the labeller said the earlier instructions had confused them)",
+   "labels": "1U 2U 3U 4S 5S 6S 7S 8S 9U 10U 11S 12S 13U 14S 15S 16U 17U 18S 19U 20U",
+   "answered": 20,
+   "agree": 15,
+   "kappa": 0.5,
+   "disagree": {
+    "human_unseen_rule_seen": 3,
+    "human_seen_rule_unseen": 2
+   },
+   "note": "in the three rule-seen cases the rule's evidence (a printed syntax error, a printed TypeError, a test run reporting failures) is in the log; the labeller judged this round rushed, so the paper reports round 2 (round 1's firm answers plus the 10 relabelled cards)"
+  }
+ ]
+}

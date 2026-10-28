@@ -1,0 +1,27 @@
+{
+ "instance_id": "sympy__sympy-20438",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 4,
+    "kind": "load"
+   },
+   {
+    "onset_cmd": 4,
+    "repair_cmd": 6,
+    "kind": "test"
+   }
+  ],
+  "exposure": "4/7"
+ },
+ "commands": [
+  "grep -n 'return self.end - self.start' sympy/sets/sets.py",
+  "printf 'def broken(:\\n' >> sympy/sets/sets.py",
+  "sed -i 's/return self.end - self.start/return self.start - self.end/' sympy/sets/sets.py",
+  "sed -i '$ d' sympy/sets/sets.py",
+  "grep -n 'return self.start - self.end' sympy/sets/sets.py",
+  "git checkout -- sympy/sets/sets.py",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

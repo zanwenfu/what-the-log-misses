@@ -1,0 +1,27 @@
+{
+ "instance_id": "django__django-11292",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 3,
+    "repair_cmd": 5,
+    "kind": "test"
+   },
+   {
+    "onset_cmd": 5,
+    "repair_cmd": 6,
+    "kind": "load"
+   }
+  ],
+  "exposure": "3/7"
+ },
+ "commands": [
+  "grep -n 'def get_random_secret_key' -A6 django/core/management/utils.py",
+  "printf '\\n# planted: harmless comment\\n' >> django/core/management/utils.py",
+  "sed -i 's/return get_random_string(50, chars)/return get_random_string(40, chars)/' django/core/management/utils.py",
+  "ls tests/user_commands/",
+  "printf 'def broken(:\\n' >> django/core/management/utils.py",
+  "git checkout -- django/core/management/utils.py && git status --short",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

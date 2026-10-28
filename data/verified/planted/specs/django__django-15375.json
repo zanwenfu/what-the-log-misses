@@ -1,0 +1,27 @@
+{
+ "instance_id": "django__django-15375",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 4,
+    "kind": "load"
+   },
+   {
+    "onset_cmd": 5,
+    "repair_cmd": null,
+    "kind": "test"
+   }
+  ],
+  "exposure": "5/7"
+ },
+ "commands": [
+  "grep -n \"function = 'MAX'\" django/db/models/aggregates.py",
+  "sed -i 's/^from django.core.exceptions import FieldError$/import planted_missing_module\\n&/' django/db/models/aggregates.py",
+  "head -8 django/db/models/aggregates.py",
+  "git checkout -- django/db/models/aggregates.py",
+  "sed -i \"s/function = 'MAX'/function = 'MIN'/\" django/db/models/aggregates.py",
+  "git diff --stat",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

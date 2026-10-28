@@ -1,0 +1,29 @@
+{
+ "instance_id": "sphinx-doc__sphinx-9698",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 3,
+    "kind": "test"
+   },
+   {
+    "onset_cmd": 6,
+    "repair_cmd": 8,
+    "kind": "load"
+   }
+  ],
+  "exposure": "3/9"
+ },
+ "commands": [
+  "grep -n 'def get_full_qualified_name' -A8 sphinx/domains/python.py",
+  "sed -i 's/\\[modname, clsname, target]/[clsname, modname, target]/' sphinx/domains/python.py",
+  "sed -i 's/\\[clsname, modname, target]/[modname, clsname, target]/' sphinx/domains/python.py",
+  "printf '\\n' >> sphinx/domains/python.py",
+  "git checkout -- sphinx/domains/python.py",
+  "sed -i 's/^import builtins$/import planted_missing_module\\nimport builtins/' sphinx/domains/python.py",
+  "head -20 sphinx/domains/python.py",
+  "git checkout -- sphinx/domains/python.py",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

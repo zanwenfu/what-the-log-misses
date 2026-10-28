@@ -1,0 +1,21 @@
+{
+ "instance_id": "scikit-learn__scikit-learn-14629",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 4,
+    "kind": "test"
+   }
+  ],
+  "exposure": "2/6"
+ },
+ "commands": [
+  "grep -n '_fit_estimator' sklearn/multioutput.py",
+  "sed -i 's/^def _fit_estimator(estimator, X, y, sample_weight=None):$/&\\n    raise RuntimeError(\"planted\")/' sklearn/multioutput.py",
+  "sed -n '34,42p' sklearn/multioutput.py",
+  "sed -i '36d' sklearn/multioutput.py",
+  "git status --short",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

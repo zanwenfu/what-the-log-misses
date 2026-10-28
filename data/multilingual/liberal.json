@@ -1,0 +1,7 @@
+{
+ "breaks": 150,
+ "unseen_rule": 116,
+ "unseen_liberal": 75,
+ "rule": "seen if any command between onset and repair mentions a test runner or test file (test, spec, jest, mocha, vitest, karma, phpunit, rspec, rake, pest, minitest, *_test.*, *.test.*, *_spec.*, *Test.php)",
+ "note": "rule plus the edited-file error clause, then any command mentioning a test counts as seen"
+}

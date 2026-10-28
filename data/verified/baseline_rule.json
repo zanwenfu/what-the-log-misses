@@ -1,0 +1,14 @@
+{
+ "edits": 13608,
+ "broken_edits": 3763,
+ "flagged": 11627,
+ "flag_rate": 0.8544238683127572,
+ "precision": 0.3003354261632407,
+ "recall": 0.927982992293383,
+ "table": {
+  "ok/flagged": 8135,
+  "ok/tested": 1710,
+  "broken/flagged": 3492,
+  "broken/tested": 271
+ }
+}

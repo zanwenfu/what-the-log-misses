@@ -1,0 +1,11 @@
+{
+ "author": {
+  "cards": 20,
+  "called": 20,
+  "agree": 16,
+  "kappa": 0.6,
+  "rule_unseen_called": 9,
+  "human_unseen_rule_seen": 3,
+  "human_seen_rule_unseen": 1
+ }
+}

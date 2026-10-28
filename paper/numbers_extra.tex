@@ -1,0 +1,108 @@
+% Extra analyses for 'What the Log Misses' (extra_numbers.py). Prefix Xt. Shares in percent.
+% Reproduced first, equal to the package's macros: RunsMain, Breaks, BreakAny, Unseen, RvEndUnseenRuns, RvFailedRuns, RvFailedOnlyRegression, RvFailedOnlyRegressionShare, Exposure, SyntaxShare, NonSyntaxRuns, NonSyntaxUnseen, RvEndUnseenRunsCI, PairAExposure, PairBExposure, EraOldRuns, EraOldModels, EraOldBreak, EraOldUnseen, EraOldExposure, EraOldBreaks, EraNewRuns, EraNewModels, EraNewBreak, EraNewUnseen, EraNewExposure, EraNewBreaks, EraNewExposureMax, RvJudgeCommon, RvJSUnseen, RvJSUnseenN, RvJSSeen, RvJSSeenN, RvJSClean, RvJSCleanN, RvJSPrec, RvJOUnseen, RvJOUnseenN, RvJOSeen, RvJOSeenN, RvJOClean, RvJOCleanN, RvJOPrec, RvJDUnseen, RvJDUnseenN, RvJDSeen, RvJDSeenN, RvJDClean, RvJDCleanN, RvJDPrec, RvJXUnseen, RvJXUnseenN, RvJXSeen, RvJXSeenN, RvJXClean, RvJXCleanN, RvJXPrec, RvFullSPrec, RvFullOnsets, RvFullCleanEdits, RvFullSPrecCI, RvFullOPrec, RvFullOPrecCI.
+% Already in numbers.tex, not repeated here: \NonSyntaxRuns, \NonSyntaxUnseen, \EraOldModels, \EraNewModels,
+% \EraOldRuns, \EraNewRuns, \EraOldBreaks, \EraNewBreaks, \EraOldBreak, \EraNewBreak, \EraOldUnseen(CI),
+% \EraNewUnseen(CI), \EraOldExposure, \EraNewExposure, \EraNewExposureMax; the 8.2% interval is \RvEndUnseenRunsCI.
+% Task bootstrap: 2,000 resamples of the 40 tasks, seed 20261023, percentile interval, as paper_numbers.py.
+% Release year: not in the tables. Submission years: 1.x runs ['2025'], 2.x runs ['2026'], so a split by submission year is the scaffold split.
+% Same model, both scaffolds: 20250807_mini-v1.7.0_gpt-5-mini 15.5 -> 20260217_mini-v2.0.0_gpt-5-mini 2.1 on 38 shared tasks
+% Same model, both scaffolds: 20251211_mini-v1.17.2_gpt-5.2-2025-12-11-high 1.4 -> 20260217_mini-v2.0.0_gpt-5-2-high 1.3 on 34 shared tasks
+% Same model, both scaffolds: 20251201_mini-v1.17.1_deepseek-v3.2-reasoner 11.3 -> 20260217_mini-v2.0.0_deepseek-3-2-high 10.7 on 39 shared tasks
+% Same model, both scaffolds: 20251124_mini-v1.16.0_claude-opus-4-5-20251101 4.4 -> 20260217_mini-v2.0.0_claude-4-5-opus-high 3.4 on 36 shared tasks
+% Same model, both scaffolds: 20250929_mini-v1.13.3_sonnet-4-5-20250929 6.7 -> 20260217_mini-v2.0.0_claude-4-5-sonnet-high 5.3 on 36 shared tasks
+% Same model, both scaffolds: 20251118_mini-v1.15.0_gemini-3-pro-preview-20251118 4.7 -> 20260226_mini-v2.0.0_gemini-3-pro-high 6.8 on 36 shared tasks
+\newcommand{\XtJSUnseenCI}{70--84} % Table II: \RvJSUnseen, Wilson 95% interval over its 148 sampled commands
+\newcommand{\XtJSSeenCI}{65--90} % Table II: \RvJSSeen, Wilson 95% interval over its 40 sampled commands
+\newcommand{\XtJSCleanCI}{7--20} % Table II: \RvJSClean, Wilson 95% interval over its 100 sampled commands
+\newcommand{\XtJSPrecExact}{42} % Table II: implied precision from the unrounded flag rates (paper's value uses rounded rates)
+\newcommand{\XtJSPrecCI}{32--60} % Table II: implied precision, 95% bootstrap over the sampled commands within each class (all three flag rates vary)
+\newcommand{\XtJSPrecTaskCI}{30--62} % Table II: implied precision, 95% bootstrap over the 37 tasks the sampled commands come from
+\newcommand{\XtJOUnseenCI}{77--89} % Table II: \RvJOUnseen, Wilson 95% interval over its 148 sampled commands
+\newcommand{\XtJOSeenCI}{71--93} % Table II: \RvJOSeen, Wilson 95% interval over its 40 sampled commands
+\newcommand{\XtJOCleanCI}{7--20} % Table II: \RvJOClean, Wilson 95% interval over its 100 sampled commands
+\newcommand{\XtJOPrecExact}{44} % Table II: implied precision from the unrounded flag rates (paper's value uses rounded rates)
+\newcommand{\XtJOPrecCI}{33--61} % Table II: implied precision, 95% bootstrap over the sampled commands within each class (all three flag rates vary)
+\newcommand{\XtJOPrecTaskCI}{29--72} % Table II: implied precision, 95% bootstrap over the 37 tasks the sampled commands come from
+\newcommand{\XtJDUnseenCI}{55--70} % Table II: \RvJDUnseen, Wilson 95% interval over its 148 sampled commands
+\newcommand{\XtJDSeenCI}{71--93} % Table II: \RvJDSeen, Wilson 95% interval over its 40 sampled commands
+\newcommand{\XtJDCleanCI}{22--40} % Table II: \RvJDClean, Wilson 95% interval over its 100 sampled commands
+\newcommand{\XtJDPrecExact}{21} % Table II: implied precision from the unrounded flag rates (paper's value uses rounded rates)
+\newcommand{\XtJDPrecCI}{17--28} % Table II: implied precision, 95% bootstrap over the sampled commands within each class (all three flag rates vary)
+\newcommand{\XtJDPrecTaskCI}{17--28} % Table II: implied precision, 95% bootstrap over the 37 tasks the sampled commands come from
+\newcommand{\XtJXUnseenCI}{69--82} % Table II: \RvJXUnseen, Wilson 95% interval over its 148 sampled commands
+\newcommand{\XtJXSeenCI}{65--90} % Table II: \RvJXSeen, Wilson 95% interval over its 40 sampled commands
+\newcommand{\XtJXCleanCI}{6--19} % Table II: \RvJXClean, Wilson 95% interval over its 100 sampled commands
+\newcommand{\XtJXPrecExact}{44} % Table II: implied precision from the unrounded flag rates (paper's value uses rounded rates)
+\newcommand{\XtJXPrecCI}{32--63} % Table II: implied precision, 95% bootstrap over the sampled commands within each class (all three flag rates vary)
+\newcommand{\XtJXPrecTaskCI}{30--71} % Table II: implied precision, 95% bootstrap over the 37 tasks the sampled commands come from
+\newcommand{\XtJudgeTasks}{37} % Table II: tasks the 288 sampled commands come from
+\newcommand{\XtFullSFlags}{128} % Whole runs: edits on clean code that Sonnet flags as breaking
+\newcommand{\XtFullSConfirmed}{54} % Whole runs: Sonnet flags the tests confirm (the edit starts a break)
+\newcommand{\XtFullSUnconfirmed}{74} % Whole runs: Sonnet flags on edits that leave the code clean
+\newcommand{\XtFullSPrecExact}{42.2} % Whole runs: Sonnet precision, one decimal
+\newcommand{\XtFullSPrecWilson}{34--51} % Whole runs: Sonnet precision, Wilson 95% over its 128 flags (ignores clustering by run)
+\newcommand{\XtFullSPrecTaskCI}{30--63} % Whole runs: Sonnet precision, 95% bootstrap over the 40 tasks (paper's interval is over runs: \RvFullSPrecCI)
+\newcommand{\XtFullOFlags}{139} % Whole runs: edits on clean code that Opus flags as breaking
+\newcommand{\XtFullOConfirmed}{57} % Whole runs: Opus flags the tests confirm (the edit starts a break)
+\newcommand{\XtFullOUnconfirmed}{82} % Whole runs: Opus flags on edits that leave the code clean
+\newcommand{\XtFullOPrecExact}{41.0} % Whole runs: Opus precision, one decimal
+\newcommand{\XtFullOPrecWilson}{33--49} % Whole runs: Opus precision, Wilson 95% over its 139 flags (ignores clustering by run)
+\newcommand{\XtFullOPrecTaskCI}{30--60} % Whole runs: Opus precision, 95% bootstrap over the 40 tasks (paper's interval is over runs: \RvFullOPrecCI)
+\newcommand{\XtFullCleanOnly}{781} % Whole runs: edits on clean code that leave it clean (848 minus 67 onsets)
+\newcommand{\XtFullTasks}{40} % Whole runs: tasks the 150 judged runs come from
+\newcommand{\XtNoSynBreaks}{605} % Breaks that are not syntax errors (of \Breaks)
+\newcommand{\XtNoSynRunsCI}{16--30} % Runs with a non-syntax break (\NonSyntaxRuns), task bootstrap
+\newcommand{\XtNoSynUnseenCI}{52--71} % Non-syntax breaks unseen (\NonSyntaxUnseen), task bootstrap
+\newcommand{\XtNoSynEndUnseenRunsN}{97} % Runs ending on an unseen non-syntax break
+\newcommand{\XtNoSynEndUnseenRuns}{6.2} % Share of kept runs ending on an unseen non-syntax break (cf. \RvEndUnseenRuns)
+\newcommand{\XtNoSynEndUnseenRunsCI}{3.8--9.2} % Same, task bootstrap
+\newcommand{\XtNoSynOnlyReg}{50} % Failed runs whose only failure is a broken previously passing test, the break being no syntax error (cf. \RvFailedOnlyRegression)
+\newcommand{\XtNoSynOnlyRegShare}{8.6} % Same, share of the \RvFailedRuns{} failed runs (cf. \RvFailedOnlyRegressionShare)
+\newcommand{\XtNoSynOnlyRegShareCI}{4.0--14.8} % Same, task bootstrap
+\newcommand{\XtNoSynOnlyRegUnseen}{37} % Of \XtNoSynOnlyReg, runs ending on an unseen break
+\newcommand{\XtOnlyRegShare}{8.8} % \RvFailedOnlyRegressionShare to one decimal
+\newcommand{\XtOnlyRegShareCI}{4.1--15.1} % \RvFailedOnlyRegressionShare, 95% task bootstrap
+\newcommand{\XtOnlyRegShareWilson}{6.7--11.4} % Same, Wilson over the failed runs (ignores tasks)
+\newcommand{\XtOnlyRegUnseen}{37} % Of \RvFailedOnlyRegression, runs ending on an unseen break
+\newcommand{\XtEndUnseenRunsN}{127} % Runs ending on an unseen break (\RvEndUnseenRuns of \RunsMain)
+\newcommand{\XtEndUnseenRunsCI}{5.4--11.4} % \RvEndUnseenRuns, task bootstrap (reproduces \RvEndUnseenRunsCI)
+\newcommand{\XtEndUnseenRunsWilson}{6.9--9.6} % Same, Wilson over runs (ignores tasks)
+\newcommand{\XtDropBreakMin}{35} % Drop one task: lowest BreakAny (36 with all; lowest without sympy__sympy-12489)
+\newcommand{\XtDropBreakMax}{37} % Drop one task: highest BreakAny (highest without django__django-15380)
+\newcommand{\XtDropUnseenMin}{54} % Drop one task: lowest Unseen (55 with all; lowest without django__django-11292)
+\newcommand{\XtDropUnseenMax}{57} % Drop one task: highest Unseen (highest without sympy__sympy-12489)
+\newcommand{\XtDropEndUnseenMin}{7.3} % Drop one task: lowest EndUnseen (8.2 with all; lowest without sympy__sympy-13091)
+\newcommand{\XtDropEndUnseenMax}{8.4} % Drop one task: highest EndUnseen (highest without django__django-14373)
+\newcommand{\XtDropOnlyRegMin}{7.2} % Drop one task: lowest OnlyReg (8.8 with all; lowest without django__django-11490)
+\newcommand{\XtDropOnlyRegMax}{9.4} % Drop one task: highest OnlyReg (highest without sympy__sympy-20438)
+\newcommand{\XtPairRatio}{3.0} % Qwen3-Coder exposure over Gemini 2.5 Pro's (\PairAExposure/\PairBExposure)
+\newcommand{\XtDropPairRatioMin}{2.8} % Drop one task: lowest Qwen3-Coder/Gemini exposure ratio (without sympy__sympy-12489)
+\newcommand{\XtDropPairRatioMax}{3.6} % Drop one task: highest ratio (without django__django-13401)
+\newcommand{\XtEndUnseenTasks}{33} % Distinct tasks among the 127 runs behind EndUnseen
+\newcommand{\XtEndUnseenTopTask}{16} % Most of those runs from one task (sympy__sympy-13091)
+\newcommand{\XtOnlyRegTasks}{15} % Distinct tasks among the 51 runs behind OnlyReg
+\newcommand{\XtOnlyRegTopTask}{10} % Most of those runs from one task (django__django-11490)
+\newcommand{\XtEraOldBreakCI}{36--48} % Scaffold Old: \EraOldBreak, task bootstrap
+\newcommand{\XtEraOldEndUnseenN}{113} % Scaffold Old: runs ending on an unseen break
+\newcommand{\XtEraOldEndUnseen}{10.5} % Scaffold Old: share of its \EraOldRuns{} runs ending on an unseen break (cf. \RvEndUnseenRuns)
+\newcommand{\XtEraOldEndUnseenCI}{7.2--14.6} % Same, task bootstrap
+\newcommand{\XtEraOldExposureCI}{11.8--18.5} % Scaffold Old: \EraOldExposure, task bootstrap
+\newcommand{\XtEraOldOnlyRegN}{44} % Scaffold Old: failed runs failed only by a broken previously passing test
+\newcommand{\XtEraOldFailed}{465} % Scaffold Old: runs the leaderboard marks failed
+\newcommand{\XtEraOldOnlyReg}{9.5} % Scaffold Old: share of its failed runs (cf. \RvFailedOnlyRegressionShare)
+\newcommand{\XtEraNewBreakCI}{16--31} % Scaffold New: \EraNewBreak, task bootstrap
+\newcommand{\XtEraNewEndUnseenN}{14} % Scaffold New: runs ending on an unseen break
+\newcommand{\XtEraNewEndUnseen}{2.9} % Scaffold New: share of its \EraNewRuns{} runs ending on an unseen break (cf. \RvEndUnseenRuns)
+\newcommand{\XtEraNewEndUnseenCI}{1.0--5.1} % Same, task bootstrap
+\newcommand{\XtEraNewExposureCI}{2.9--8.7} % Scaffold New: \EraNewExposure, task bootstrap
+\newcommand{\XtEraNewOnlyRegN}{7} % Scaffold New: failed runs failed only by a broken previously passing test
+\newcommand{\XtEraNewFailed}{116} % Scaffold New: runs the leaderboard marks failed
+\newcommand{\XtEraNewOnlyReg}{6.0} % Scaffold New: share of its failed runs (cf. \RvFailedOnlyRegressionShare)
+\newcommand{\XtEraNewTopModel}{deepseek-3-2-high} % Scaffold 2.x model with the highest exposure (\EraNewExposureMax\%)
+\newcommand{\XtSameModelPairs}{6} % Models run under both scaffold versions (matched by name)
+\newcommand{\XtSameModelLower}{5} % Of those, exposure lower under 2.x (on shared tasks)
+\newcommand{\XtSameModelMedianChange}{-0.8} % Median change in exposure, 2.x minus 1.x, points
+\newcommand{\XtSameModelBigOld}{15.5} % Largest change: 20250807_mini-v1.7.0_gpt-5-mini exposure under 1.x (shared tasks)
+\newcommand{\XtSameModelBigNew}{2.1} % Largest change: 20260217_mini-v2.0.0_gpt-5-mini exposure under 2.x (shared tasks)
+\newcommand{\XtSameModelRestMin}{-1.4} % The other pairs: smallest change, points
+\newcommand{\XtSameModelRestMax}{+2.1} % The other pairs: largest change, points

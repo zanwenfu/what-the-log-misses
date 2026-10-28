@@ -1,0 +1,28 @@
+{
+ "breaks": 150,
+ "unseen": 116,
+ "rule_failure_matches": 150,
+ "unseen_test": 78,
+ "unseen_test_err": 32,
+ "unseen_test_errfail": 35,
+ "unseen_test_noevidence": 62,
+ "unseen_test_noevidence_err": 30,
+ "unseen_load": 38,
+ "unseen_load_err": 14,
+ "unseen_load_errfail": 15,
+ "unseen_load_noevidence": 22,
+ "unseen_load_noevidence_err": 9,
+ "unseen_share": 77,
+ "bound_err": 47,
+ "bound_err_load_only": 71,
+ "bound_errfail": 44,
+ "unseen_c_hits": 21,
+ "bound_file_matched": 63,
+ "c_detail": {
+  "test": 78,
+  "test_hit": 16,
+  "nofiles": 3,
+  "load": 38,
+  "load_hit": 5
+ }
+}

@@ -1,0 +1,247 @@
+{
+ "common_items": 288,
+ "sonnet": {
+  "unseen": {
+   "called": 115,
+   "n": 148,
+   "share": 78,
+   "ci": [
+    70,
+    84
+   ]
+  },
+  "unseen_load": {
+   "called": 51,
+   "n": 55,
+   "share": 93,
+   "ci": [
+    83,
+    97
+   ]
+  },
+  "unseen_test": {
+   "called": 64,
+   "n": 93,
+   "share": 69,
+   "ci": [
+    59,
+    77
+   ]
+  },
+  "seen": {
+   "called": 32,
+   "n": 40,
+   "share": 80,
+   "ci": [
+    65,
+    90
+   ]
+  },
+  "clean": {
+   "called": 12,
+   "n": 100,
+   "share": 12,
+   "ci": [
+    7,
+    20
+   ]
+  },
+  "precision": 42,
+  "precision_ci": [
+   30,
+   55
+  ],
+  "precision_after_syntax_check": 23
+ },
+ "opus": {
+  "unseen": {
+   "called": 124,
+   "n": 148,
+   "share": 84,
+   "ci": [
+    77,
+    89
+   ]
+  },
+  "unseen_load": {
+   "called": 51,
+   "n": 55,
+   "share": 93,
+   "ci": [
+    83,
+    97
+   ]
+  },
+  "unseen_test": {
+   "called": 73,
+   "n": 93,
+   "share": 78,
+   "ci": [
+    69,
+    86
+   ]
+  },
+  "seen": {
+   "called": 34,
+   "n": 40,
+   "share": 85,
+   "ci": [
+    71,
+    93
+   ]
+  },
+  "clean": {
+   "called": 12,
+   "n": 100,
+   "share": 12,
+   "ci": [
+    7,
+    20
+   ]
+  },
+  "precision": 44,
+  "precision_ci": [
+   32,
+   57
+  ],
+  "precision_after_syntax_check": 25
+ },
+ "deepseek": {
+  "unseen": {
+   "called": 93,
+   "n": 148,
+   "share": 63,
+   "ci": [
+    55,
+    70
+   ]
+  },
+  "unseen_load": {
+   "called": 36,
+   "n": 55,
+   "share": 65,
+   "ci": [
+    52,
+    77
+   ]
+  },
+  "unseen_test": {
+   "called": 57,
+   "n": 93,
+   "share": 61,
+   "ci": [
+    51,
+    71
+   ]
+  },
+  "seen": {
+   "called": 34,
+   "n": 40,
+   "share": 85,
+   "ci": [
+    71,
+    93
+   ]
+  },
+  "clean": {
+   "called": 30,
+   "n": 100,
+   "share": 30,
+   "ci": [
+    22,
+    40
+   ]
+  },
+  "precision": 21,
+  "precision_ci": [
+   17,
+   27
+  ],
+  "precision_after_syntax_check": 9
+ },
+ "sonnet_examples": {
+  "unseen": {
+   "called": 113,
+   "n": 148,
+   "share": 76,
+   "ci": [
+    69,
+    82
+   ]
+  },
+  "unseen_load": {
+   "called": 50,
+   "n": 55,
+   "share": 91,
+   "ci": [
+    80,
+    96
+   ]
+  },
+  "unseen_test": {
+   "called": 63,
+   "n": 93,
+   "share": 68,
+   "ci": [
+    58,
+    76
+   ]
+  },
+  "seen": {
+   "called": 32,
+   "n": 40,
+   "share": 80,
+   "ci": [
+    65,
+    90
+   ]
+  },
+  "clean": {
+   "called": 11,
+   "n": 100,
+   "share": 11,
+   "ci": [
+    6,
+    19
+   ]
+  },
+  "precision": 44,
+  "precision_ci": [
+   31,
+   59
+  ],
+  "precision_after_syntax_check": 24
+ },
+ "examples_effect_on_sonnet": {
+  "unseen": {
+   "to_broken": 6,
+   "to_ok": 8,
+   "p": 0.7905,
+   "n": 148
+  },
+  "unseen_load": {
+   "to_broken": 1,
+   "to_ok": 2,
+   "p": 1.0,
+   "n": 55
+  },
+  "unseen_test": {
+   "to_broken": 5,
+   "to_ok": 6,
+   "p": 1.0,
+   "n": 93
+  },
+  "seen": {
+   "to_broken": 1,
+   "to_ok": 1,
+   "p": 1.0,
+   "n": 40
+  },
+  "clean": {
+   "to_broken": 1,
+   "to_ok": 2,
+   "p": 1.0,
+   "n": 100
+  }
+ }
+}

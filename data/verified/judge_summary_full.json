@@ -1,0 +1,72 @@
+{
+ "sonnet": {
+  "runs": 150,
+  "edits_on_clean": 848,
+  "onsets": 67,
+  "unanswered": 0,
+  "recall": 81,
+  "recall_ci": [
+   70,
+   88
+  ],
+  "recall_unseen": 76,
+  "n_unseen": 38,
+  "recall_unseen_ci": [
+   61,
+   87
+  ],
+  "recall_seen": 86,
+  "n_seen": 29,
+  "false_alarm": 9,
+  "false_alarm_ci": [
+   8,
+   12
+  ],
+  "flags": 128,
+  "precision": 42,
+  "precision_ci": [
+   30,
+   59
+  ],
+  "precision_after_syntax": 27,
+  "base_rate": 7.9,
+  "precision_at_overall_rate": 48,
+  "state_accuracy": 84,
+  "cost": 6.69
+ },
+ "opus": {
+  "runs": 150,
+  "edits_on_clean": 848,
+  "onsets": 67,
+  "unanswered": 0,
+  "recall": 85,
+  "recall_ci": [
+   75,
+   92
+  ],
+  "recall_unseen": 82,
+  "n_unseen": 38,
+  "recall_unseen_ci": [
+   67,
+   91
+  ],
+  "recall_seen": 90,
+  "n_seen": 29,
+  "false_alarm": 10,
+  "false_alarm_ci": [
+   9,
+   13
+  ],
+  "flags": 139,
+  "precision": 41,
+  "precision_ci": [
+   31,
+   54
+  ],
+  "precision_after_syntax": 27,
+  "base_rate": 7.9,
+  "precision_at_overall_rate": 47,
+  "state_accuracy": 86,
+  "cost": 12.96
+ }
+}

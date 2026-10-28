@@ -1,0 +1,682 @@
+"""The sweep driver: many trials, resumable, and honest about what it cost.
+
+A sweep is a grid of (task x arm x trial). Running one is mostly an exercise
+in surviving interruption: a few hundred trials on a laptop over an API will
+be stopped by a rate limit, a laptop lid, or a mistake, and the failure mode
+that ruins a study is not losing work — it is *silently double-counting* the
+work done twice.
+
+The unit of progress is a **cell**, keyed by (task, arm, trial). Completed
+results live in the ledger; each potentially paid attempt first receives a
+durable admission identity under ``.sweep-journal``. A missing final result
+is not permission to repeat an interrupted attempt. One driver owns the ledger
+at a time, and restart replays complete receipts or blocks on unsettled work.
+
+Three things this refuses to do, each because it would quietly corrupt the
+resulting numbers:
+
+* **Pool failure kinds.** A trial killed by a rate limit is not evidence about
+  the agent. Infrastructure faults are recorded separately. Budget exhaustion
+  counts as an unsuccessful task outcome; its spending is still real.
+* **Share a workspace.** Every trial materializes its own copy. Two trials in
+  one directory means one run's edits become another's starting state.
+* **Report a cap as a cost.** What a trial was *allowed* to spend and what it
+  *did* spend are different numbers, and only the second is data.
+"""
+
+from __future__ import annotations
+
+import json
+import math
+import os
+import tempfile
+import time
+import traceback
+from collections.abc import Callable, Iterator
+from copy import deepcopy
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+from typing import Any
+
+from replaykit.config import HarnessConfig, kernel_kwargs
+from replaykit.kernel import Kernel, RunResult
+from replaykit.ledger_costs import lifetime_billed_usd, read_cost_row
+from replaykit.resources import resource_failures
+from replaykit.sweep_journal import SweepJournal, UnsettledSweepAttempt
+
+CellStatus = str  # "completed" | "failed" | "infra" | "budget" | "error" | "aborted"
+
+
+@dataclass(frozen=True)
+class Cell:
+    """One trial: a task, an arm, a repetition index."""
+
+    task: str
+    arm: str
+    trial: int
+
+    @property
+    def key(self) -> str:
+        return f"{self.task}__{self.arm}__t{self.trial}"
+
+
+@dataclass
+class CellResult:
+    """What one trial produced. Written once, then never recomputed."""
+
+    task: str
+    arm: str
+    trial: int
+    status: CellStatus
+    config_hash: str
+    session_id: str = ""
+    final_sha: str = ""
+    steps_passed: int = 0
+    steps_total: int = 0
+    attempts: int = 0
+    rollbacks: int = 0
+    score: float | None = None
+    """The primary endpoint — fractional, filled in by the scorer."""
+    billed_usd: float = 0.0
+    work_usd: float = 0.0
+    """Both currencies. A cap is enforced on work; billed is what was paid."""
+    cache_delta_usd: float = 0.0
+    elapsed_s: float = 0.0
+    failure_reason: str | None = None
+    split_id: str = ""
+    error: str | None = None
+
+    # --- where this cell's evidence lives.
+    # Without these the ledger records a number but not the artifacts behind
+    # it, and the replay stage cannot find shadow.jsonl from the ledger alone
+    # — which makes the primary outcome unrecomputable from what was written.
+    workspace: str = ""
+    gitdir: str = ""
+    session_branch: str = ""
+    shadow_ref: str = ""
+    report_path: str = ""
+    """Sidecar JSON: the full verdict matrix and silence report. A scalar
+    score is not the dependent variable; contamination events are."""
+
+    attempts_made: int = 1
+    """How many times this cell has been executed, including retries after
+    infrastructure faults. Reported as attrition, never hidden."""
+    attempt_id: str = ""
+    """Durable pre-effect admission identity; empty only in historical rows."""
+    ts: float = field(default_factory=time.time)
+    prior_attempts: tuple[dict[str, Any], ...] = ()
+    """Flat immutable snapshots of earlier attempts, including their costs."""
+
+    def __post_init__(self) -> None:
+        self.prior_attempts = tuple(self.prior_attempts)
+
+    @property
+    def total_billed_usd(self) -> float:
+        return lifetime_billed_usd({
+            "task": self.task, "arm": self.arm, "trial": self.trial,
+            "attempts_made": self.attempts_made, "prior_attempts": self.prior_attempts,
+            "billed_usd": self.billed_usd,
+        })
+
+    @property
+    def counts_toward_success(self) -> bool:
+        """Whether this trial is evidence about the recovery policy.
+
+        Budget exhaustion COUNTS, as a failure — intention-to-treat. Running
+        out of money is precisely what an expensive policy costs, so dropping
+        those runs would flatter whichever arm spends most, which is the arm
+        under test. Only infrastructure faults and harness errors are
+        excluded, because those say nothing about any arm.
+        """
+        return self.status in ("completed", "failed", "budget")
+
+    @property
+    def retryable(self) -> bool:
+        """Whether re-running this cell could produce evidence.
+
+        An infra fault or a harness crash is not an outcome; leaving it on
+        disk as a finished cell would permanently shrink the sample. A budget
+        or task failure IS an outcome and must never be retried — retrying
+        until an arm succeeds is the purest form of selecting on the
+        dependent variable.
+        """
+        # Historical ledgers predate grading-only recovery. Their score
+        # errors must not authorize another paid execution either.
+        return self.status in ("infra", "error") and not (self.error or "").startswith("score:")
+
+
+@dataclass
+class SweepReport:
+    results: list[CellResult] = field(default_factory=list)
+    skipped: int = 0
+    """Cells already on disk — resumed, not re-run."""
+
+    def by_arm(self) -> dict[str, list[CellResult]]:
+        out: dict[str, list[CellResult]] = {}
+        for r in self.results:
+            out.setdefault(r.arm, []).append(r)
+        return out
+
+    def summary(self) -> str:
+        """Per-arm description with attrition explicit.
+
+        Deliberately not a bare cross-arm mean: an unweighted mean over
+        whatever survived listwise deletion hides both how many trials each
+        arm lost and why, and it is the first thing a reviewer asks for.
+        Inference belongs in :mod:`replaykit.stats`, not here.
+        """
+        from replaykit.stats import summarise_arm
+
+        lines = [f"{len(self.results)} cells run, {self.skipped} resumed from disk"]
+        for arm, records in sorted(self.by_arm().items()):
+            lines.append(summarise_arm(arm, records).render())
+        lines.append(
+            "note: means are descriptive only; the pre-registered contrasts "
+            "are computed by replaykit.stats on paired blocks."
+        )
+        return "\n".join(lines)
+
+
+@dataclass(frozen=True)
+class GradingResult:
+    """The fields a recovered grader may publish; execution stays immutable."""
+
+    score: float | None
+    report_path: str = ""
+
+    def __post_init__(self) -> None:
+        if self.score is not None and (
+            isinstance(self.score, bool) or not isinstance(self.score, (int, float))
+            or not math.isfinite(self.score)
+        ):
+            raise ValueError("grade must be a finite number or None")
+        if not isinstance(self.report_path, str):
+            raise ValueError("grade report path must be a string")
+
+
+class Ledger:
+    """One file per completed cell. The filesystem is the state."""
+
+    def __init__(self, root: Path, *, _journal: SweepJournal | None = None) -> None:
+        self.root = Path(root)
+        self.root.mkdir(parents=True, exist_ok=True)
+        self._journal = _journal
+
+    def path_for(self, cell: Cell) -> Path:
+        if (not isinstance(cell.task, str) or not cell.task
+                or not isinstance(cell.arm, str) or not cell.arm
+                or type(cell.trial) is not int):
+            raise ValueError("cell identity is missing or malformed")
+        if Path(cell.key).name != cell.key or "\x00" in cell.key:
+            raise ValueError("cell identity cannot contain filesystem path separators")
+        return self.root / f"{cell.key}.json"
+
+    def done(self, cell: Cell, *, retry_budget: int = 0) -> bool:
+        """Whether this cell is finished for good.
+
+        A recorded infra fault or crash is retryable up to a declared budget:
+        treating it as done would silently shrink the sample, and the number
+        of retries spent is itself reportable attrition.
+        """
+        result = self.read(cell)
+        if result is None:
+            return False
+        return not (result.retryable and result.attempts_made <= retry_budget)
+
+    def read(self, cell: Cell) -> CellResult | None:
+        path = self.path_for(cell)
+        if not path.exists():
+            return None
+        result = self._read_path(path)
+        if (result.task, result.arm, result.trial) != (cell.task, cell.arm, cell.trial):
+            raise ValueError("cell ledger contains another cell's result")
+        return result
+
+    def _read_path(self, path: Path) -> CellResult:
+        try:
+            raw = read_cost_row(path)
+            # Dataclass defaults support new in-memory results, not missing
+            # receipts on disk. Validate raw costs before applying defaults.
+            known = CellResult.__dataclass_fields__
+            result = CellResult(**{k: v for k, v in raw.items() if k in known})
+        except (ValueError, TypeError) as exc:
+            raise ValueError(f"cell ledger is malformed: {path.name}: {exc}") from exc
+        if path != self.path_for(Cell(result.task, result.arm, result.trial)):
+            raise ValueError(f"cell ledger filename does not match its identity: {path.name}")
+        return result
+
+    def _prepare_write(self, result: CellResult) -> Path | None:
+        """Bind prior history before either a journal receipt or result is written."""
+        cell = Cell(result.task, result.arm, result.trial)
+        target = self.path_for(cell)
+        previous = self.read(cell)
+        abort_marker = cell == Cell("__sweep__", "__abort__", 0) and result.status == "aborted"
+        if result.status == "aborted" and not abort_marker:
+            raise ValueError("an abort marker cannot replace a cell's paid attempt")
+        if abort_marker and (result.attempts_made != 1 or result.prior_attempts or result.billed_usd != 0):
+            raise ValueError("a sweep abort marker cannot contain paid attempts")
+        if previous is not None and not abort_marker:
+            if previous.attempts_made == result.attempts_made:
+                if asdict(previous) == asdict(result):
+                    return
+                raise ValueError("a recorded cell attempt cannot be overwritten")
+            if result.attempts_made != previous.attempts_made + 1:
+                raise ValueError("cell attempts must advance one at a time")
+            _ = previous.total_billed_usd
+            prior = asdict(previous)
+            prior.pop("prior_attempts")
+            result.prior_attempts = (*previous.prior_attempts, prior)
+        _ = result.total_billed_usd
+        return target
+
+    def write(self, result: CellResult) -> None:
+        """Atomic: a partial file on interruption would read as a done cell."""
+        if self._journal is not None:
+            self._journal.assert_owner(self.root)
+            return self._write(result)
+        # Standalone callers cannot mutate a ledger during a sweep or report.
+        with SweepJournal(self.root) as journal:
+            if journal.pending() is not None:
+                raise UnsettledSweepAttempt("direct ledger mutation cannot settle a pending attempt")
+            return self._write(result)
+
+    def _write(self, result: CellResult) -> None:
+        target = self._prepare_write(result)
+        if target is None:
+            return
+        tmp: Path | None = None
+        try:
+            with tempfile.NamedTemporaryFile(mode="w", dir=self.root, suffix=".tmp", delete=False) as handle:
+                tmp = Path(handle.name)
+                json.dump(asdict(result), handle, indent=2, sort_keys=True, allow_nan=False)
+                handle.flush()
+                os.fsync(handle.fileno())
+            tmp.replace(target)
+            descriptor = os.open(self.root, os.O_RDONLY)
+            try:
+                os.fsync(descriptor)
+            finally:
+                os.close(descriptor)
+        finally:
+            if tmp is not None:
+                tmp.unlink(missing_ok=True)
+
+    def all_results(self) -> list[CellResult]:
+        # A corrupt row is missing evidence, not permission to silently shrink
+        # the denominator of a reported sweep.
+        return [self._read_path(path) for path in sorted(self.root.glob("*.json"))]
+
+
+def cells(tasks: list[str], arms: list[str], trials: int) -> Iterator[Cell]:
+    """The grid, ordered so arms interleave within a task.
+
+    Deliberately not arm-major: running every A1 trial and then every A3 trial
+    aligns condition with calendar time, so a model update or a quiet API day
+    lands entirely on one arm. Interleaving spreads that noise across all of
+    them.
+    """
+    for task in tasks:
+        for trial in range(1, trials + 1):
+            for arm in arms:
+                yield Cell(task=task, arm=arm, trial=trial)
+
+
+def run_sweep(
+    *,
+    tasks: list[str],
+    arms: list[str],
+    trials: int,
+    ledger_dir: Path,
+    prepare: Callable[[Cell], Any],
+    execute: Callable[[Cell, Any], RunResult],
+    score: Callable[[Cell, Any, RunResult], float | None] | None = None,
+    on_cell: Callable[[CellResult], None] | None = None,
+    retry_budget: int = 0,
+    max_consecutive_failures: int | None = None,
+    sweep_budget_usd: float | None = None,
+) -> SweepReport:
+    """Run a ledger under one owner, journaling admission before external work.
+
+    The work queue may be a filtered resume subset; its budget always covers
+    the whole ledger. A killed attempt without a durable ending blocks more
+    work until its execution/grading evidence is reconciled. A complete ending
+    is replayed into the ledger without preparing or executing the cell again.
+    A failed grader leaves the execution pending for :func:`resume_grading`;
+    it is never retried by paying for another execution.
+    """
+    with SweepJournal(ledger_dir) as journal:
+        ledger = Ledger(ledger_dir, _journal=journal)
+        ending = journal.ending()
+        if ending is not None:
+            ledger.write(CellResult(**ending))
+            journal.finish()
+        return _run_sweep(
+            tasks=tasks, arms=arms, trials=trials, ledger_dir=ledger_dir,
+            prepare=prepare, execute=execute, score=score, on_cell=on_cell,
+            retry_budget=retry_budget, max_consecutive_failures=max_consecutive_failures,
+            sweep_budget_usd=sweep_budget_usd, journal=journal,
+        )
+
+
+def resume_grading(
+    *, ledger_dir: Path, score: Callable[[CellResult], GradingResult],
+) -> CellResult | None:
+    """Grade a pending execution receipt, with no prepare or execute callback.
+
+    The caller supplies a benchmark-specific grader over the archived evidence
+    identified by the receipt. It must verify that evidence, reuse the original
+    grading configuration, and must not run the agent. Arbitrary live callback
+    contexts are intentionally not deserialized. A completed ending is replayed
+    without grading again; an unknown execution cannot use this recovery path.
+    """
+    with SweepJournal(ledger_dir) as journal:
+        ledger = Ledger(ledger_dir, _journal=journal)
+        if journal.pending() is None:
+            return None
+        ending = journal.ending(allow_incomplete=True)
+        if ending is not None:
+            record = CellResult(**ending)
+        else:
+            record = CellResult(**journal.execution())
+            ledger._prepare_write(record)
+            try:
+                grade = score(deepcopy(record))
+                if not isinstance(grade, GradingResult):
+                    raise TypeError("recovered grader must return GradingResult")
+            except BaseException as exc:
+                _resource_failed(journal, exc, "score", (record.billed_usd, record.work_usd, record.cache_delta_usd))
+                if not isinstance(exc, Exception):
+                    raise
+                _grading_failed(journal, record, exc)
+            record.score = grade.score
+            record.report_path = grade.report_path
+            journal.record("ending", asdict(record))
+        ledger.write(record)
+        journal.finish()
+        return record
+
+
+def _resource_failed(journal: SweepJournal, exc: BaseException, phase: str,
+                     costs: tuple[float, float, float] | None) -> None:
+    failures = resource_failures(exc)
+    if not failures:
+        return
+    admission = journal.pending()
+    if admission is None:
+        raise UnsettledSweepAttempt("resource failure has no active admission") from exc
+    journal.record("resources", {
+        **admission["cell"], "attempt_id": admission["attempt_id"],
+        "attempts_made": admission["attempts_made"], "phase": phase,
+        "billed_usd": None if costs is None else costs[0],
+        "work_usd": None if costs is None else costs[1],
+        "cache_delta_usd": None if costs is None else costs[2],
+        "resources": [item.to_dict() for item in failures],
+        "error": f"{type(exc).__name__}: {exc}",
+        "failure_reason": traceback.format_exc(limit=3),
+    })
+    raise UnsettledSweepAttempt(
+        f"admitted attempt {admission['attempt_id']}: resource cleanup is unconfirmed; "
+        f"automatic retry and grading recovery are blocked; evidence: "
+        f"{journal.root / admission['attempt_id']}"
+    ) from exc
+
+
+def _grading_failed(journal: SweepJournal, record: CellResult, exc: Exception,
+                    report_path: str = "") -> None:
+    _resource_failed(journal, exc, "score", (record.billed_usd, record.work_usd, record.cache_delta_usd))
+    journal.record_grading_failure({
+        "task": record.task, "arm": record.arm, "trial": record.trial,
+        "attempt_id": record.attempt_id, "attempts_made": record.attempts_made,
+        "error": f"score: {type(exc).__name__}: {exc}",
+        "failure_reason": traceback.format_exc(limit=3),
+        "report_path": report_path, "ts": time.time(),
+    })
+    raise UnsettledSweepAttempt(
+        f"admitted attempt {record.attempt_id}: execution receipt preserved; grading is incomplete; "
+        f"automatic retry is blocked; use resume_grading with the archived evidence: "
+        f"{journal.root / record.attempt_id}"
+    ) from exc
+
+
+def _run_sweep(
+    *,
+    tasks: list[str],
+    arms: list[str],
+    trials: int,
+    ledger_dir: Path,
+    prepare: Callable[[Cell], Any],
+    execute: Callable[[Cell, Any], RunResult],
+    score: Callable[[Cell, Any, RunResult], float | None] | None,
+    on_cell: Callable[[CellResult], None] | None,
+    retry_budget: int,
+    max_consecutive_failures: int | None,
+    sweep_budget_usd: float | None,
+    journal: SweepJournal,
+) -> SweepReport:
+    """Run the grid, skipping cells already on disk.
+
+    ``prepare`` materializes an isolated workspace for a cell and returns
+    whatever ``execute`` and ``score`` need. Splitting it out keeps the
+    per-trial isolation guarantee in one place rather than scattered through
+    the driver.
+
+    ``max_consecutive_failures`` and ``sweep_budget_usd`` are the sweep's own
+    circuit breakers, and they exist because per-cell caps compose into no
+    sweep-level protection at all: a grid whose cells all fail for one
+    systematic reason — a broken image, a revoked key, a bug in the harness
+    itself — runs to the end at full price. That is exactly how $99 went to
+    measuring a broken environment. A failure only feeds the breaker when the
+    cell also made zero step progress, because a run that passed steps before
+    failing is evidence about the arm, not about the environment; any other
+    outcome resets the count. The budget is a running total of billed
+    dollars, checked before a cell starts — this is a stop-loss on real
+    spend. The ledger directory defines its scope: every earlier paid cell
+    counts, including tasks or arms filtered out of a resume work queue.
+    A separate study with its own budget needs a separate ledger directory.
+    Both trip into a single ``status="aborted"`` marker row naming the rule,
+    so a resumed sweep can see it stopped deliberately, not crashed.
+    """
+    if (sweep_budget_usd is not None
+            and (isinstance(sweep_budget_usd, bool)
+                 or not isinstance(sweep_budget_usd, (int, float))
+                 or not math.isfinite(sweep_budget_usd) or sweep_budget_usd < 0)):
+        raise ValueError("sweep_budget_usd must be a finite non-negative number")
+    ledger = Ledger(ledger_dir, _journal=journal)
+    report = SweepReport()
+    notify = on_cell or (lambda _r: None)
+
+    streak = 0
+    # Selection controls work to do, not money already spent. In particular,
+    # CLI --skip-completed must not acquire a fresh allowance on every resume.
+    billed_total = math.fsum(prior.total_billed_usd for prior in ledger.all_results())
+
+    def aborted(reason: str) -> None:
+        marker = CellResult(
+            task="__sweep__",
+            arm="__abort__",
+            trial=0,
+            status="aborted",
+            config_hash="",
+            failure_reason=reason,
+        )
+        ledger.write(marker)
+        report.results.append(marker)
+        notify(marker)
+
+    for cell in cells(tasks, arms, trials):
+        if ledger.done(cell, retry_budget=retry_budget):
+            report.skipped += 1
+            continue
+        if sweep_budget_usd is not None and billed_total >= sweep_budget_usd:
+            aborted(
+                f"sweep budget exhausted: ${billed_total:.2f} billed of "
+                f"${sweep_budget_usd:.2f} allowed"
+            )
+            break
+        previous = ledger.read(cell)
+        attempt_number = (previous.attempts_made + 1) if previous else 1
+        attempt_id = journal.begin(asdict(cell), attempt_number)
+
+        started = time.time()
+        context: Any = None
+        result: RunResult | None = None
+        execution_record: CellResult | None = None
+        phase = "prepare"
+        try:
+            context = prepare(cell)
+            phase = "execute"
+            result = execute(cell, context)
+            # Capture execution's costs and provenance before a fallible
+            # grader can mutate its inputs or discard the completed result.
+            execution_record = _record_from(cell, result, None, context)
+            execution_record.attempts_made = attempt_number
+            execution_record.attempt_id = attempt_id
+            ledger._prepare_write(execution_record)
+            journal.record("execution", asdict(execution_record))
+            phase = "score"
+            value = score(cell, context, result) if score else None
+            grade = GradingResult(value, str(getattr(context, "report_path", "") or ""))
+            record = execution_record
+            record.score = grade.score
+            record.report_path = grade.report_path
+        except BaseException as exc:
+            if resource_failures(exc):
+                if execution_record is not None:
+                    resource_costs = (execution_record.billed_usd, execution_record.work_usd,
+                                      execution_record.cache_delta_usd)
+                elif phase == "prepare":
+                    resource_costs = (0.0, 0.0, 0.0)
+                else:
+                    try:
+                        resource_costs = _receipt_costs(_execution_stats(result, context))
+                    except Exception:
+                        resource_costs = None
+                _resource_failed(journal, exc, phase, resource_costs)
+            if not isinstance(exc, Exception):
+                raise
+            # A grading failure does not erase the execution phase, its
+            # returned costs, or the immutable state needed to investigate it.
+            # Context statistics are a fallback for adapters that raise before
+            # returning their result; they are not a required second receipt.
+            if execution_record is not None:
+                if phase == "score":
+                    _grading_failed(journal, execution_record, exc,
+                                    str(getattr(context, "report_path", "") or ""))
+                # A receipt-publication error must not finalize a paid run as
+                # retryable. The pending admission retains the uncertainty.
+                raise UnsettledSweepAttempt(
+                    f"execution receipt publication failed for {attempt_id}; automatic retry is blocked"
+                ) from exc
+            else:
+                stats = _execution_stats(result, context)
+                # Preparing only materializes the workspace; paid work belongs
+                # in execute. Once execute starts, lack of a complete receipt
+                # cannot establish that it spent nothing before raising.
+                costs = _receipt_costs(stats) if phase == "execute" else (0.0, 0.0, 0.0)
+                if costs is None:
+                    journal.record("failure", {
+                        **asdict(cell), "attempt_id": attempt_id, "attempts_made": attempt_number,
+                        "billed_usd": None, "work_usd": None,
+                        "error": f"{phase}: {type(exc).__name__}: {exc}",
+                        "failure_reason": traceback.format_exc(limit=3),
+                    })
+                    raise UnsettledSweepAttempt(
+                        f"admitted attempt {attempt_id}: execution cost is unknown; "
+                        f"automatic retry is blocked; evidence: {journal.root / attempt_id}"
+                    ) from exc
+                record = CellResult(
+                    task=cell.task,
+                    arm=cell.arm,
+                    trial=cell.trial,
+                    status="error",
+                    config_hash="",
+                    billed_usd=costs[0],
+                    work_usd=costs[1],
+                    cache_delta_usd=costs[2],
+                    attempts_made=attempt_number,
+                )
+            record.elapsed_s = round(time.time() - started, 2)
+            record.error = f"{phase}: {type(exc).__name__}: {exc}"
+            record.failure_reason = traceback.format_exc(limit=3)
+
+        record.attempt_id = attempt_id
+        ledger._prepare_write(record)
+        journal.record("ending", asdict(record))
+        ledger.write(record)
+        journal.finish()
+        report.results.append(record)
+        notify(record)
+
+        billed_total += record.billed_usd
+        if record.status in ("failed", "error", "infra") and record.steps_passed == 0:
+            streak += 1
+        else:
+            streak = 0
+        if max_consecutive_failures is not None and streak >= max_consecutive_failures:
+            aborted(
+                f"circuit breaker: {streak} consecutive zero-progress failures"
+            )
+            break
+
+    return report
+
+
+def _execution_stats(result: RunResult | None, context: Any) -> Any:
+    stats = getattr(result, "stats", None)
+    return stats if stats is not None else getattr(context, "llm_stats", None)
+
+
+def _receipt_costs(stats: Any) -> tuple[float, float, float] | None:
+    """Validate both currencies without rounding real charges into free work."""
+    values = (getattr(stats, "total_cost_usd", None), getattr(stats, "total_work_usd", None),
+              getattr(stats, "cache_delta_usd", 0.0))
+    if any(isinstance(value, bool) or not isinstance(value, (int, float))
+           or not math.isfinite(value) for value in values):
+        return None
+    if values[0] < 0 or values[1] < 0:
+        return None
+    return tuple(float(value) for value in values)
+
+
+def _record_from(cell: Cell, result: RunResult, score: float | None, context: Any) -> CellResult:
+    stats = _execution_stats(result, context)
+    # A completed synthetic RunResult can explicitly have no statistics.
+    # Supplied receipts must validate before normalization, on success too.
+    costs = _receipt_costs(stats) if stats is not None else (0.0, 0.0, 0.0)
+    if costs is None:
+        raise ValueError("execution cost receipt is invalid")
+    status: CellStatus = result.status
+    if result.failure_kind in ("infra", "budget"):
+        status = result.failure_kind
+
+    return CellResult(
+        task=cell.task,
+        arm=cell.arm,
+        trial=cell.trial,
+        status=status,
+        config_hash=getattr(getattr(context, "config", None), "hash", lambda: "")(),
+        session_id=result.session_id,
+        final_sha=result.final_sha,
+        steps_passed=sum(1 for o in result.outcomes if o.verdict.passed),
+        steps_total=len(result.plan.steps),
+        attempts=sum(o.attempts for o in result.outcomes),
+        rollbacks=sum(1 for o in result.outcomes if o.rolled_back),
+        score=score,
+        billed_usd=costs[0],
+        work_usd=costs[1],
+        cache_delta_usd=costs[2],
+        elapsed_s=result.elapsed_seconds,
+        failure_reason=result.failure_reason,
+        split_id=getattr(context, "split_id", "") or "",
+        workspace=str(getattr(context, "workspace", "") or ""),
+        gitdir=str(getattr(context, "gitdir", "") or ""),
+        session_branch=result.session_id,
+        shadow_ref=str(getattr(context, "shadow_ref", "") or ""),
+        report_path=str(getattr(context, "report_path", "") or ""),
+    )
+
+
+def kernel_for(arm: str, workspace: Path, llm: Any, **overrides: Any) -> Kernel:
+    """A kernel configured for one arm. One place, so arms cannot drift."""
+    config = HarnessConfig.arm(arm, **overrides)
+    return Kernel(workspace=workspace, llm=llm, **kernel_kwargs(config), config=config)

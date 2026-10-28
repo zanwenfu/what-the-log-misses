@@ -1,0 +1,46 @@
+== pilot vs final
+compared 122 cells finished in both; identical 110; different 12
+  20250726_mini-v1.0.0_claude-sonnet-4-20250514 pylint-dev__pylint-7080
+      same_submission False vs True
+  20250726_mini-v1.0.0_gemini-2.5-flash scikit-learn__scikit-learn-14983
+      same_submission False vs True
+  20250726_mini-v1.0.0_o4-mini-2025-04-16 pylint-dev__pylint-7080
+      same_submission False vs True
+  20250807_mini-v1.7.0_gpt-5-mini django__django-13569
+      same_submission False vs True
+  20250807_mini-v1.7.0_gpt-5-mini scikit-learn__scikit-learn-14983
+      same_submission False vs True
+  20250807_mini-v1.7.0_gpt-oss-120b pylint-dev__pylint-7080
+      same_submission False vs True
+  20251124_mini-v1.17.0_minimax-m2 pylint-dev__pylint-7080
+      same_submission False vs True
+  20251201_mini-v1.17.1_deepseek-v3.2-reasoner scikit-learn__scikit-learn-14983
+      same_submission False vs True
+  20251201_mini-v1.17.1_glm-4.6 pylint-dev__pylint-7080
+      same_submission False vs True
+  20251209_mini-v1.17.2_devstral-small-2512 pylint-dev__pylint-7080
+      same_submission False vs True
+  20260217_mini-v2.0.0_deepseek-3-2-high scikit-learn__scikit-learn-14983
+      same_submission False vs True
+  20260217_mini-v2.0.0_gpt-5-mini scikit-learn__scikit-learn-14983
+      same_submission False vs True
+== first partial full run vs final
+compared 244 cells finished in both; identical 239; different 5
+  20250726_mini-v1.0.0_claude-sonnet-4-20250514 sympy__sympy-20438
+      state cmd-027: failed 6->5 unreported 0->0 skipped 0->0 infra None->None
+      state cmd-029: failed 6->5 unreported 0->0 skipped 0->0 infra None->None
+      state final: failed 5->6 unreported 0->0 skipped 0->0 infra None->None
+  20250726_mini-v1.0.0_gemini-2.5-flash sympy__sympy-20438
+      state cmd-039: failed 46->47 unreported 0->0 skipped 0->0 infra None->None
+      state cmd-042: failed 46->47 unreported 0->0 skipped 0->0 infra None->None
+  20250726_mini-v1.0.0_o4-mini-2025-04-16 sympy__sympy-20438
+      state cmd-043: failed 30->29 unreported 0->0 skipped 0->0 infra None->None
+      state cmd-045: failed 29->30 unreported 0->0 skipped 0->0 infra None->None
+      state cmd-047: failed 30->29 unreported 0->0 skipped 0->0 infra None->None
+      state cmd-051: failed 30->29 unreported 0->0 skipped 0->0 infra None->None
+      state cmd-053: failed 30->29 unreported 0->0 skipped 0->0 infra None->None
+      state final: failed 29->30 unreported 0->0 skipped 0->0 infra None->None
+  20251124_mini-v1.16.0_claude-opus-4-5-20251101 sympy__sympy-20438
+      state cmd-016: failed 6->5 unreported 0->0 skipped 0->0 infra None->None
+  20260217_mini-v2.0.0_claude-4-5-haiku-high sympy__sympy-20438
+      state cmd-044: failed 5->6 unreported 0->0 skipped 0->0 infra None->None

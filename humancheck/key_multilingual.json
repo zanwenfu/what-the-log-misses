@@ -1,0 +1,142 @@
+{
+ "1": {
+  "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+  "task": "rubocop__rubocop-13653",
+  "onset": "27",
+  "kind": "load",
+  "rule_says": "unseen"
+ },
+ "2": {
+  "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+  "task": "preactjs__preact-3062",
+  "onset": "52",
+  "kind": "test",
+  "rule_says": "unseen"
+ },
+ "3": {
+  "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+  "task": "preactjs__preact-3062",
+  "onset": "21",
+  "kind": "load",
+  "rule_says": "unseen"
+ },
+ "4": {
+  "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+  "task": "jekyll__jekyll-8167",
+  "onset": "17",
+  "kind": "test",
+  "rule_says": "unseen"
+ },
+ "5": {
+  "submission": "20260213_mini-v2.0.0a0_kimi-k2-5",
+  "task": "preactjs__preact-3062",
+  "onset": "41",
+  "kind": "test",
+  "rule_says": "seen"
+ },
+ "6": {
+  "submission": "20260213_mini-v2.0.0a0_claude-4-6-opus",
+  "task": "php-cs-fixer__php-cs-fixer-7635",
+  "onset": "15",
+  "kind": "test",
+  "rule_says": "unseen"
+ },
+ "7": {
+  "submission": "20260220_mini-v2.0.0_gpt-5-2-codex",
+  "task": "phpoffice__phpspreadsheet-4214",
+  "onset": "37",
+  "kind": "test",
+  "rule_says": "unseen"
+ },
+ "8": {
+  "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+  "task": "phpoffice__phpspreadsheet-4214",
+  "onset": "64",
+  "kind": "test",
+  "rule_says": "seen"
+ },
+ "9": {
+  "submission": "20260213_mini-v2.0.0a0_glm-5",
+  "task": "php-cs-fixer__php-cs-fixer-7635",
+  "onset": "18",
+  "kind": "test",
+  "rule_says": "seen"
+ },
+ "10": {
+  "submission": "20260213_mini-v2.0.0a0_claude-4-5-haiku",
+  "task": "preactjs__preact-4182",
+  "onset": "34",
+  "kind": "test",
+  "rule_says": "seen"
+ },
+ "11": {
+  "submission": "20260213_mini-v2.0.0a0_gemini-3-pro",
+  "task": "preactjs__preact-4182",
+  "onset": "24",
+  "kind": "load",
+  "rule_says": "unseen"
+ },
+ "12": {
+  "submission": "20260213_mini-v2.0.0a0_claude-4-5-opus",
+  "task": "briannesbitt__carbon-3005",
+  "onset": "47",
+  "kind": "load",
+  "rule_says": "seen"
+ },
+ "13": {
+  "submission": "20260216_mini-v2.0.0a0_minimax-2-5",
+  "task": "briannesbitt__carbon-3005",
+  "onset": "104",
+  "kind": "load",
+  "rule_says": "seen"
+ },
+ "14": {
+  "submission": "20260213_mini-v2.0.0a0_gemini-3-pro",
+  "task": "preactjs__preact-4436",
+  "onset": "29",
+  "kind": "test",
+  "rule_says": "unseen"
+ },
+ "15": {
+  "submission": "20260213_mini-v2.0.0a0_gemini-3-pro",
+  "task": "preactjs__preact-4436",
+  "onset": "37",
+  "kind": "test",
+  "rule_says": "seen"
+ },
+ "16": {
+  "submission": "20260213_mini-v2.0.0a0_kimi-k2-5",
+  "task": "preactjs__preact-4436",
+  "onset": "24",
+  "kind": "load",
+  "rule_says": "unseen"
+ },
+ "17": {
+  "submission": "20260213_mini-v2.0.0a0_claude-4-5-opus",
+  "task": "jekyll__jekyll-8167",
+  "onset": "9",
+  "kind": "load",
+  "rule_says": "seen"
+ },
+ "18": {
+  "submission": "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+  "task": "laravel__framework-53914",
+  "onset": "62",
+  "kind": "test",
+  "rule_says": "unseen"
+ },
+ "19": {
+  "submission": "20260213_mini-v2.0.0a0_kimi-k2-5",
+  "task": "preactjs__preact-4182",
+  "onset": "113",
+  "kind": "test",
+  "rule_says": "seen"
+ },
+ "20": {
+  "submission": "20260213_mini-v2.0.0a0_claude-4-6-opus",
+  "task": "jekyll__jekyll-8167",
+  "onset": "8",
+  "kind": "load",
+  "rule_says": "seen"
+ }
+}

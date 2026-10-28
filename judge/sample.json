@@ -1,0 +1,1682 @@
+[
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-13569",
+"step": 26,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "django__django-16315",
+"step": 27,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "matplotlib__matplotlib-23412",
+"step": 47,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_gpt-5-mini",
+"task": "sympy__sympy-12489",
+"step": 28,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "django__django-11149",
+"step": 16,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_gpt-5-2-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 48,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "astropy__astropy-14508",
+"step": 8,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "sympy__sympy-12489",
+"step": 56,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.16.0_claude-opus-4-5-20251101",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 12,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "django__django-15037",
+"step": 89,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "pytest-dev__pytest-5631",
+"step": 92,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "django__django-11292",
+"step": 56,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "django__django-11333",
+"step": 50,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sympy__sympy-19637",
+"step": 21,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-5-mini",
+"task": "django__django-15375",
+"step": 10,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+"task": "django__django-11292",
+"step": 12,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "scikit-learn__scikit-learn-25931",
+"step": 53,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "astropy__astropy-14508",
+"step": 6,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-15375",
+"step": 143,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "scikit-learn__scikit-learn-14983",
+"step": 16,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "sympy__sympy-13091",
+"step": 43,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "sphinx-doc__sphinx-8548",
+"step": 15,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "sphinx-doc__sphinx-9698",
+"step": 55,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 214,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "sphinx-doc__sphinx-8269",
+"step": 22,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "sphinx-doc__sphinx-10614",
+"step": 61,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "sympy__sympy-13091",
+"step": 12,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "sympy__sympy-12489",
+"step": 14,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+"task": "django__django-11333",
+"step": 19,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sympy__sympy-13091",
+"step": 107,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.16.0_claude-opus-4-5-20251101",
+"task": "django__django-16333",
+"step": 8,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "sympy__sympy-13091",
+"step": 75,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "django__django-11292",
+"step": 15,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "scikit-learn__scikit-learn-14983",
+"step": 15,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "django__django-13401",
+"step": 24,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "django__django-11292",
+"step": 11,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "django__django-13401",
+"step": 34,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-5-nano",
+"task": "matplotlib__matplotlib-23412",
+"step": 22,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250929_mini-v1.13.3_sonnet-4-5-20250929",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 17,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "sympy__sympy-12489",
+"step": 19,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "django__django-11149",
+"step": 37,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-5",
+"task": "django__django-15037",
+"step": 14,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 78,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "sympy__sympy-13091",
+"step": 211,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+"task": "sympy__sympy-13091",
+"step": 41,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_gpt-5-2-high",
+"task": "sympy__sympy-13091",
+"step": 37,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260901_mini-v2.4.2_gemini-3-5-flash",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 19,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "django__django-11292",
+"step": 24,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+"task": "django__django-16333",
+"step": 10,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "sympy__sympy-20438",
+"step": 22,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "django__django-11490",
+"step": 34,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251118_mini-v1.15.0_gemini-3-pro-preview-20251118",
+"task": "sphinx-doc__sphinx-8548",
+"step": 58,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-15375",
+"step": 41,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-11292",
+"step": 8,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "scikit-learn__scikit-learn-25931",
+"step": 25,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "sympy__sympy-13091",
+"step": 7,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+"task": "django__django-15037",
+"step": 22,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "django__django-15037",
+"step": 53,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+"task": "sympy__sympy-23950",
+"step": 16,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+"task": "django__django-13401",
+"step": 24,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-5-nano",
+"task": "django__django-16819",
+"step": 13,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+"task": "django__django-11149",
+"step": 15,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "django__django-15375",
+"step": 32,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "pylint-dev__pylint-7080",
+"step": 41,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-5-haiku-high",
+"task": "sympy__sympy-13091",
+"step": 28,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sphinx-doc__sphinx-7462",
+"step": 15,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+"task": "matplotlib__matplotlib-23412",
+"step": 80,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 18,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "django__django-13569",
+"step": 65,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "django__django-11490",
+"step": 6,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "django__django-15375",
+"step": 34,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "sympy__sympy-13091",
+"step": 11,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "matplotlib__matplotlib-23412",
+"step": 27,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 33,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "astropy__astropy-14182",
+"step": 20,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "astropy__astropy-14182",
+"step": 53,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "astropy__astropy-14508",
+"step": 5,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_glm-5-high",
+"task": "sympy__sympy-12489",
+"step": 30,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+"task": "sympy__sympy-12489",
+"step": 22,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_gemini-2.5-flash",
+"task": "sympy__sympy-20438",
+"step": 36,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 13,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "sphinx-doc__sphinx-8269",
+"step": 10,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "sphinx-doc__sphinx-9698",
+"step": 49,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sphinx-doc__sphinx-8548",
+"step": 49,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "django__django-13569",
+"step": 28,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "django__django-16819",
+"step": 61,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "django__django-11292",
+"step": 29,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-11490",
+"step": 5,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "django__django-15037",
+"step": 12,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "pydata__xarray-6744",
+"step": 25,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 72,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "sympy__sympy-12489",
+"step": 82,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250807_mini-v1.7.0_kimi-k2-instruct",
+"task": "django__django-16899",
+"step": 16,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+"task": "django__django-16333",
+"step": 5,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 90,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "sphinx-doc__sphinx-7462",
+"step": 15,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "django__django-11490",
+"step": 27,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-11292",
+"step": 39,
+"break_kind": "test"
+},
+{
+"kind": "unseen_break",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "django__django-13569",
+"step": 16,
+"break_kind": "load"
+},
+{
+"kind": "unseen_break",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "sympy__sympy-12489",
+"step": 87,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-13569",
+"step": 90,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-5-haiku-high",
+"task": "pytest-dev__pytest-7324",
+"step": 44,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 196,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "pylint-dev__pylint-7080",
+"step": 134,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+"task": "pydata__xarray-6744",
+"step": 5,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "pytest-dev__pytest-7324",
+"step": 28,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-11149",
+"step": 38,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-15375",
+"step": 34,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-16819",
+"step": 10,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "sympy__sympy-20438",
+"step": 50,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "sympy__sympy-12489",
+"step": 7,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "sphinx-doc__sphinx-7462",
+"step": 20,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "django__django-16819",
+"step": 18,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_gemini-2.5-flash",
+"task": "django__django-11490",
+"step": 40,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "sympy__sympy-12489",
+"step": 42,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "sympy__sympy-13091",
+"step": 67,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "sympy__sympy-12489",
+"step": 129,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "pytest-dev__pytest-5631",
+"step": 34,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "sphinx-doc__sphinx-8548",
+"step": 40,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "sympy__sympy-12489",
+"step": 28,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+"task": "django__django-15375",
+"step": 8,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "django__django-11265",
+"step": 92,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_gemini-2.5-pro",
+"task": "pytest-dev__pytest-7324",
+"step": 4,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "astropy__astropy-12907",
+"step": 73,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "sympy__sympy-12489",
+"step": 50,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250807_mini-v1.7.0_gpt-5-nano",
+"task": "sphinx-doc__sphinx-8548",
+"step": 143,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250807_mini-v1.7.0_gpt-5",
+"task": "django__django-11265",
+"step": 8,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "pydata__xarray-6744",
+"step": 67,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "pytest-dev__pytest-7324",
+"step": 75,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "django__django-15037",
+"step": 29,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_gemini-2.5-flash",
+"task": "pylint-dev__pylint-6528",
+"step": 26,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+"task": "django__django-11490",
+"step": 22,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "pydata__xarray-6744",
+"step": 29,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "django__django-15375",
+"step": 36,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_claude-4-6-opus",
+"task": "sympy__sympy-13091",
+"step": 47,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250807_mini-v1.7.0_kimi-k2-instruct",
+"task": "django__django-14373",
+"step": 7,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "sympy__sympy-19637",
+"step": 5,
+"break_kind": "load"
+},
+{
+"kind": "seen_break",
+"submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+"task": "django__django-11490",
+"step": 31,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "pylint-dev__pylint-6528",
+"step": 24,
+"break_kind": "test"
+},
+{
+"kind": "seen_break",
+"submission": "20250807_mini-v1.7.0_kimi-k2-instruct",
+"task": "pylint-dev__pylint-6528",
+"step": 49,
+"break_kind": "load"
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-13569",
+"step": 171,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "django__django-16315",
+"step": 31,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "matplotlib__matplotlib-23412",
+"step": 22,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+"task": "sympy__sympy-12489",
+"step": 33,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "django__django-11149",
+"step": 10,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 42,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "astropy__astropy-14508",
+"step": 6,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "sympy__sympy-12489",
+"step": 6,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.16.0_claude-opus-4-5-20251101",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 14,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "django__django-15037",
+"step": 19,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "pytest-dev__pytest-5631",
+"step": 83,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "django__django-11292",
+"step": 23,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "django__django-11333",
+"step": 49,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sympy__sympy-19637",
+"step": 19,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "django__django-15375",
+"step": 28,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+"task": "django__django-11292",
+"step": 5,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "scikit-learn__scikit-learn-25931",
+"step": 62,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_o3-2025-04-16",
+"task": "astropy__astropy-14508",
+"step": 8,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-15375",
+"step": 128,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "scikit-learn__scikit-learn-14983",
+"step": 8,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "sympy__sympy-13091",
+"step": 38,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "sphinx-doc__sphinx-8548",
+"step": 29,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "sphinx-doc__sphinx-9698",
+"step": 67,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 31,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "sphinx-doc__sphinx-8269",
+"step": 39,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "sphinx-doc__sphinx-10614",
+"step": 63,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "sympy__sympy-13091",
+"step": 9,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "sympy__sympy-12489",
+"step": 13,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+"task": "django__django-11333",
+"step": 24,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sympy__sympy-13091",
+"step": 20,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.16.0_claude-opus-4-5-20251101",
+"task": "django__django-16333",
+"step": 6,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "sympy__sympy-13091",
+"step": 72,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "django__django-11292",
+"step": 18,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "scikit-learn__scikit-learn-14983",
+"step": 34,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "django__django-13401",
+"step": 11,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+"task": "django__django-11292",
+"step": 51,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "django__django-13401",
+"step": 59,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250807_mini-v1.7.0_gpt-5-nano",
+"task": "matplotlib__matplotlib-23412",
+"step": 32,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250929_mini-v1.13.3_sonnet-4-5-20250929",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 38,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "sympy__sympy-12489",
+"step": 17,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "django__django-11149",
+"step": 16,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250807_mini-v1.7.0_gpt-5",
+"task": "django__django-15037",
+"step": 17,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 69,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "sympy__sympy-13091",
+"step": 11,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+"task": "sympy__sympy-13091",
+"step": 74,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_gpt-5-2-high",
+"task": "sympy__sympy-13091",
+"step": 62,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260901_mini-v2.4.2_gemini-3-5-flash",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 37,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "django__django-11292",
+"step": 31,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+"task": "django__django-16333",
+"step": 29,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "sympy__sympy-20438",
+"step": 47,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "django__django-11490",
+"step": 54,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251118_mini-v1.15.0_gemini-3-pro-preview-20251118",
+"task": "sphinx-doc__sphinx-8548",
+"step": 29,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-15375",
+"step": 18,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+"task": "django__django-11292",
+"step": 26,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "scikit-learn__scikit-learn-25931",
+"step": 18,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+"task": "sympy__sympy-13091",
+"step": 2,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+"task": "django__django-15037",
+"step": 13,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "django__django-15037",
+"step": 82,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260901_mini-v2.4.2_gemini-3-5-flash",
+"task": "sympy__sympy-23950",
+"step": 42,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+"task": "django__django-13401",
+"step": 16,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250807_mini-v1.7.0_gpt-5-nano",
+"task": "django__django-16819",
+"step": 6,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+"task": "django__django-11149",
+"step": 54,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "django__django-15375",
+"step": 35,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "pylint-dev__pylint-7080",
+"step": 88,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_claude-4-5-haiku-high",
+"task": "sympy__sympy-13091",
+"step": 22,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sphinx-doc__sphinx-7462",
+"step": 21,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+"task": "matplotlib__matplotlib-23412",
+"step": 75,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 10,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "django__django-13569",
+"step": 52,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "django__django-11490",
+"step": 4,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "django__django-15375",
+"step": 45,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "sympy__sympy-13091",
+"step": 16,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "matplotlib__matplotlib-23412",
+"step": 55,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 28,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+"task": "astropy__astropy-14182",
+"step": 8,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "astropy__astropy-14182",
+"step": 51,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+"task": "astropy__astropy-14508",
+"step": 31,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_glm-5-high",
+"task": "sympy__sympy-12489",
+"step": 27,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+"task": "sympy__sympy-12489",
+"step": 46,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+"task": "sympy__sympy-20438",
+"step": 18,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 11,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "sphinx-doc__sphinx-8269",
+"step": 8,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "sphinx-doc__sphinx-9698",
+"step": 22,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "sphinx-doc__sphinx-8548",
+"step": 98,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-small-2512",
+"task": "django__django-13569",
+"step": 7,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "django__django-16819",
+"step": 56,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "django__django-11292",
+"step": 17,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_gemini-2.5-pro",
+"task": "django__django-11490",
+"step": 14,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251211_mini-v1.17.2_gpt-5.2-2025-12-11",
+"task": "django__django-15037",
+"step": 16,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "pydata__xarray-6744",
+"step": 62,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+"task": "scikit-learn__scikit-learn-14629",
+"step": 76,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251201_mini-v1.17.1_glm-4.6",
+"task": "sympy__sympy-12489",
+"step": 145,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250807_mini-v1.7.0_kimi-k2-instruct",
+"task": "django__django-16899",
+"step": 29,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "django__django-16333",
+"step": 66,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+"task": "sphinx-doc__sphinx-8548",
+"step": 8,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251209_mini-v1.17.2_devstral-2512",
+"task": "sphinx-doc__sphinx-7462",
+"step": 17,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20251124_mini-v1.17.0_minimax-m2",
+"task": "django__django-11490",
+"step": 21,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+"task": "django__django-11292",
+"step": 40,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+"task": "django__django-13569",
+"step": 22,
+"break_kind": ""
+},
+{
+"kind": "clean",
+"submission": "20250822_mini-v1.9.1_glm-4.5",
+"task": "sympy__sympy-12489",
+"step": 83,
+"break_kind": ""
+}
+]

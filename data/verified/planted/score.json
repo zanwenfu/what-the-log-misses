@@ -1,0 +1,531 @@
+{
+ "astropy__astropy-12907": {
+  "expected": [
+   [
+    2,
+    4,
+    "test"
+   ],
+   [
+    4,
+    6,
+    "load"
+   ],
+   [
+    6,
+    7,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    4,
+    "test"
+   ],
+   [
+    4,
+    6,
+    "load"
+   ],
+   [
+    6,
+    7,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "astropy__astropy-14182": {
+  "expected": [
+   [
+    2,
+    4,
+    "test"
+   ],
+   [
+    5,
+    null,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    4,
+    "test"
+   ],
+   [
+    5,
+    null,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "astropy__astropy-14508": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    5,
+    null,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    5,
+    null,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "django__django-11292": {
+  "expected": [
+   [
+    3,
+    5,
+    "test"
+   ],
+   [
+    5,
+    6,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    3,
+    5,
+    "test"
+   ],
+   [
+    5,
+    6,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "django__django-13569": {
+  "expected": [
+   [
+    2,
+    3,
+    "load"
+   ],
+   [
+    4,
+    6,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "load"
+   ],
+   [
+    4,
+    6,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "django__django-14373": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    5,
+    7,
+    "test"
+   ]
+  ],
+  "found": [],
+  "pass": false
+ },
+ "django__django-15375": {
+  "expected": [
+   [
+    2,
+    4,
+    "load"
+   ],
+   [
+    5,
+    null,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    4,
+    "load"
+   ],
+   [
+    5,
+    null,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "django__django-16819": {
+  "expected": [
+   [
+    2,
+    4,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    4,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "matplotlib__matplotlib-23412": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    5,
+    null,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    5,
+    null,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "pydata__xarray-6744": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    3,
+    5,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    3,
+    5,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "pylint-dev__pylint-7080": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    4,
+    5,
+    "load"
+   ],
+   [
+    6,
+    null,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    4,
+    5,
+    "load"
+   ],
+   [
+    6,
+    null,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "pytest-dev__pytest-7324": {
+  "expected": [
+   [
+    2,
+    3,
+    "load"
+   ],
+   [
+    5,
+    6,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "load"
+   ],
+   [
+    5,
+    6,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "scikit-learn__scikit-learn-14629": {
+  "expected": [
+   [
+    2,
+    4,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    4,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "scikit-learn__scikit-learn-25931": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    4,
+    6,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    4,
+    6,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "sphinx-doc__sphinx-7440": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    6,
+    7,
+    "test"
+   ],
+   [
+    7,
+    8,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    6,
+    7,
+    "test"
+   ],
+   [
+    7,
+    8,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "sphinx-doc__sphinx-8548": {
+  "expected": [
+   [
+    1,
+    2,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    1,
+    2,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "sphinx-doc__sphinx-9698": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    6,
+    8,
+    "load"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    6,
+    8,
+    "load"
+   ]
+  ],
+  "pass": true
+ },
+ "sympy__sympy-12489": {
+  "expected": [
+   [
+    2,
+    6,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    6,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "sympy__sympy-20438": {
+  "expected": [
+   [
+    2,
+    4,
+    "load"
+   ],
+   [
+    4,
+    6,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    4,
+    "load"
+   ],
+   [
+    4,
+    6,
+    "test"
+   ]
+  ],
+  "pass": true
+ },
+ "sympy__sympy-23950": {
+  "expected": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    3,
+    5,
+    "load"
+   ],
+   [
+    5,
+    6,
+    "test"
+   ]
+  ],
+  "found": [
+   [
+    2,
+    3,
+    "test"
+   ],
+   [
+    3,
+    5,
+    "load"
+   ],
+   [
+    5,
+    6,
+    "test"
+   ]
+  ],
+  "pass": true
+ }
+}

@@ -1,0 +1,233 @@
+{
+ "summary": {
+  "bench": "ml",
+  "breaks": 150,
+  "flips": 18,
+  "no_log": 0,
+  "unseen_before": 116,
+  "unseen_after": 98,
+  "share_after": 65.3,
+  "ci_after": [
+   59.2,
+   73.3
+  ],
+  "unseen_no_tests_after": 99.0,
+  "unseen_open_after": 14,
+  "by_kind": {
+   "test": 14,
+   "load": 4
+  }
+ },
+ "flips": [
+  {
+   "submission": "20260213_mini-v2.0.0a0_claude-4-5-haiku",
+   "task": "jekyll__jekyll-8167",
+   "onset": 15,
+   "kind": "test",
+   "at": 23,
+   "files": [
+    "update_utils.rb",
+    "utils.rb"
+   ],
+   "line": "/testbed/lib/jekyll/utils.rb:221:in `slugify': undefined method `logger' for module Jekyll (NoMethodError)"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+   "task": "briannesbitt__carbon-3005",
+   "onset": 58,
+   "kind": "load",
+   "at": 59,
+   "files": [
+    "CarbonInterval.php",
+    "fix_serialization.php"
+   ],
+   "line": "Parse error: Unmatched '}' in /testbed/src/Carbon/CarbonInterval.php on line 918"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+   "task": "laravel__framework-53914",
+   "onset": 62,
+   "kind": "test",
+   "at": 63,
+   "files": [
+    "DatabaseManager.php"
+   ],
+   "line": "Warning: Undefined array key 0 in /testbed/src/Illuminate/Database/DatabaseManager.php on line 380"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+   "task": "briannesbitt__carbon-3005",
+   "onset": 70,
+   "kind": "load",
+   "at": 71,
+   "files": [
+    "CarbonInterval.php"
+   ],
+   "line": "Parse error: syntax error, unexpected token \"public\", expecting end of file in /testbed/src/Carbon/CarbonInterval.php on line 3308"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+   "task": "jekyll__jekyll-8167",
+   "onset": 21,
+   "kind": "test",
+   "at": 23,
+   "files": [
+    "patch_utils.rb",
+    "utils.rb"
+   ],
+   "line": "/testbed/lib/jekyll/utils.rb:221:in `slugify': undefined method `logger' for module Jekyll (NoMethodError)"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+   "task": "fastlane__fastlane-19304",
+   "onset": 6,
+   "kind": "test",
+   "at": 6,
+   "files": [
+    "fix_zip.rb",
+    "reproduce_issue.rb",
+    "zip.rb"
+   ],
+   "line": "Caught exception: NoMethodError: undefined method `end_with?' for an instance of Fastlane::Actions::ZipAction::Runner"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+   "task": "php-cs-fixer__php-cs-fixer-7635",
+   "onset": 21,
+   "kind": "test",
+   "at": 22,
+   "files": [
+    "FullyQualifiedStrictTypesFixer.php",
+    "fix_script.php"
+   ],
+   "line": "Parse error: syntax error, unexpected token \"if\", expecting \"function\" in /testbed/src/Fixer/Import/FullyQualifiedStrictTypesFixer.php on line 62"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+   "task": "php-cs-fixer__php-cs-fixer-7635",
+   "onset": 32,
+   "kind": "test",
+   "at": 33,
+   "files": [
+    "FullyQualifiedStrictTypesFixer.php",
+    "fix_script.php"
+   ],
+   "line": "Parse error: syntax error, unexpected token \"*\", expecting \"function\" in /testbed/src/Fixer/Import/FullyQualifiedStrictTypesFixer.php on line 430"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+   "task": "php-cs-fixer__php-cs-fixer-7635",
+   "onset": 35,
+   "kind": "test",
+   "at": 36,
+   "files": [
+    "FullyQualifiedStrictTypesFixer.php",
+    "fix_script.php"
+   ],
+   "line": "Parse error: syntax error, unexpected single-quoted string \" !== $namespaceName ? $namespa...\", expecting \")\" in /testbed/src/Fixer/Import/FullyQualifiedStrictT"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+   "task": "php-cs-fixer__php-cs-fixer-7635",
+   "onset": 69,
+   "kind": "test",
+   "at": 69,
+   "files": [
+    "FullyQualifiedStrictTypesFixer.php",
+    "fix_script.php",
+    "reproduction.php"
+   ],
+   "line": "Parse error: syntax error, unexpected token \"*\", expecting \"function\" in /testbed/src/Fixer/Import/FullyQualifiedStrictTypesFixer.php on line 430"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-pro",
+   "task": "php-cs-fixer__php-cs-fixer-7635",
+   "onset": 50,
+   "kind": "test",
+   "at": 55,
+   "files": [
+    "FullyQualifiedStrictTypesFixer.php"
+   ],
+   "line": "Parse error: syntax error, unexpected token \"private\", expecting end of file in /testbed/src/Fixer/Import/FullyQualifiedStrictTypesFixer.php on line 715"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_glm-5",
+   "task": "phpoffice__phpspreadsheet-3463",
+   "onset": 19,
+   "kind": "test",
+   "at": 21,
+   "files": [
+    "FunctionPrefix.php",
+    "fix_xlws.php"
+   ],
+   "line": "Warning: preg_replace(): Compilation failed: missing closing parenthesis at offset 33 in /testbed/src/PhpSpreadsheet/Writer/Xlsx/FunctionPrefix.php on line 175"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-2-high",
+   "task": "jekyll__jekyll-8167",
+   "onset": 14,
+   "kind": "test",
+   "at": 16,
+   "files": [
+    "utils.rb"
+   ],
+   "line": "/testbed/lib/jekyll/utils.rb:221:in `slugify': undefined method `logger' for module Jekyll (NoMethodError)"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+   "task": "briannesbitt__carbon-3073",
+   "onset": 38,
+   "kind": "load",
+   "at": 39,
+   "files": [
+    "CarbonInterval.php"
+   ],
+   "line": "Fatal error: During inheritance of Carbon\\Carbon, while autoloading Carbon\\CarbonInterval: Uncaught ParseError: syntax error, unexpected token \"\\\" in /testbed/s"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+   "task": "fastlane__fastlane-19304",
+   "onset": 6,
+   "kind": "test",
+   "at": 9,
+   "files": [
+    "zip.rb"
+   ],
+   "line": "/testbed/fastlane/lib/fastlane/actions/zip.rb:3:in `<module:Actions>': uninitialized constant Fastlane::Actions::Action (NameError)"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+   "task": "jekyll__jekyll-8167",
+   "onset": 7,
+   "kind": "test",
+   "at": 10,
+   "files": [
+    "utils.rb"
+   ],
+   "line": "/testbed/lib/jekyll/utils.rb:221:in `slugify': undefined method `logger' for module Jekyll (NoMethodError)"
+  },
+  {
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+   "task": "laravel__framework-53914",
+   "onset": 27,
+   "kind": "test",
+   "at": 44,
+   "files": [
+    "DatabaseManager.php"
+   ],
+   "line": "Parse error: syntax error, unexpected token \";\" in src/Illuminate/Database/DatabaseManager.php on line 43"
+  },
+  {
+   "submission": "20260216_mini-v2.0.0a0_minimax-2-5",
+   "task": "preactjs__preact-4182",
+   "onset": 49,
+   "kind": "load",
+   "at": 53,
+   "files": [
+    "fix.py",
+    "index.js"
+   ],
+   "line": "SyntaxError: /testbed/src/diff/index.js: Identifier 'unmount' has already been declared. (531:16)"
+  }
+ ]
+}

@@ -1,0 +1,111 @@
+% Second review round for 'What the Log Misses' (review2_numbers.py). Prefix Rx. Shares in percent.
+% Reproduced first, equal to the package's macros: RunsMain, Breaks, Exposure, ExposureFirstEdit, SyntaxShare, NonSyntaxRuns, NonSyntaxUnseen, XtNoSynEndUnseenRunsN, XtNoSynOnlyReg, XtEndUnseenRunsN, EraOldBreak, EraOldUnseen, XtEraOldEndUnseen, EraNewBreak, EraNewUnseen, XtEraNewEndUnseen, XtPairRatio, PairAFirstEditExposure, PairBFirstEditExposure, PairsAlike, PairsTwoFold, RvTransient, RvLastingRuns, RvLastingUnseen, LimitStopRuns, LimitStopBroken, LimitStopCI, LimitStopModels, Models, RvJudgeCommon, RvJSPrec, RvJSPrecCI, XtJSPrecTaskCI, RvJOPrec, RvJOPrecCI, XtJOPrecTaskCI, RvOnsetEdits.
+% Task bootstrap: 2,000 resamples of the tasks, seed 20261023, a fresh generator per statistic, percentile.
+% Also written: paper/table_syntax_era.tex (uses these macros) and paper/table_models.tex (literals).
+% \ExposureCI (9.2--15.4) is the replay report's own interval (summary.json), not this script's task bootstrap, which gives 9.3--15.3 for exposure; the report's own interval for first-edit exposure is 13.0--21.3.
+% Runs that submitted nothing, by exit status: APIError 21, LimitsExceeded 22, RetryError 3
+% Item 6 (non-syntax breaks by error) not computed: data/verified/intervals.csv keeps no error text (evidence_lines is a count). Of the older local reports, report-final2's intervals.csv has no error text either and differs from this package's break table on two breaks' seen/unseen verdict; report-final3 and report-final4 hold no break table with error text.
+% Item 7: all 288 sampled commands join exactly: every sampled break command is the onset of one kept break with the same seen/unseen verdict and kind; no clean command starts a break.
+\newcommand{\RxOldSynBreaks}{526} % Scaffold 1.x: syntax-error breaks
+\newcommand{\RxOldSynRuns}{26} % Scaffold 1.x: share of its 1075 runs with a syntax-error break
+\newcommand{\RxOldSynRunsCI}{22--30} % Same, task bootstrap
+\newcommand{\RxOldSynUnseen}{49} % Scaffold 1.x: share of its syntax-error breaks unseen
+\newcommand{\RxOldSynUnseenCI}{40--60} % Same, task bootstrap
+\newcommand{\RxOldSynEndUnseenN}{29} % Scaffold 1.x: runs ending on an unseen syntax-error break
+\newcommand{\RxOldSynEndUnseen}{2.7} % Scaffold 1.x: share of its runs ending on an unseen syntax-error break
+\newcommand{\RxOldSynEndUnseenCI}{1.7--3.9} % Same, task bootstrap
+\newcommand{\RxOldNoSynBreaks}{455} % Scaffold 1.x: non-syntax breaks
+\newcommand{\RxOldNoSynRuns}{25} % Scaffold 1.x: share of its 1075 runs with a non-syntax break
+\newcommand{\RxOldNoSynRunsCI}{18--32} % Same, task bootstrap
+\newcommand{\RxOldNoSynUnseen}{59} % Scaffold 1.x: share of its non-syntax breaks unseen
+\newcommand{\RxOldNoSynUnseenCI}{50--71} % Same, task bootstrap
+\newcommand{\RxOldNoSynEndUnseenN}{84} % Scaffold 1.x: runs ending on an unseen non-syntax break
+\newcommand{\RxOldNoSynEndUnseen}{7.8} % Scaffold 1.x: share of its runs ending on an unseen non-syntax break
+\newcommand{\RxOldNoSynEndUnseenCI}{4.7--11.7} % Same, task bootstrap
+\newcommand{\RxNewSynBreaks}{61} % Scaffold 2.x: syntax-error breaks
+\newcommand{\RxNewSynRuns}{8} % Scaffold 2.x: share of its 482 runs with a syntax-error break
+\newcommand{\RxNewSynRunsCI}{5--11} % Same, task bootstrap
+\newcommand{\RxNewSynUnseen}{62} % Scaffold 2.x: share of its syntax-error breaks unseen
+\newcommand{\RxNewSynUnseenCI}{49--79} % Same, task bootstrap
+\newcommand{\RxNewSynEndUnseenN}{1} % Scaffold 2.x: runs ending on an unseen syntax-error break
+\newcommand{\RxNewSynEndUnseen}{0.2} % Scaffold 2.x: share of its runs ending on an unseen syntax-error break
+\newcommand{\RxNewSynEndUnseenCI}{0.0--0.6} % Same, task bootstrap
+\newcommand{\RxNewNoSynBreaks}{150} % Scaffold 2.x: non-syntax breaks
+\newcommand{\RxNewNoSynRuns}{18} % Scaffold 2.x: share of its 482 runs with a non-syntax break
+\newcommand{\RxNewNoSynRunsCI}{11--26} % Same, task bootstrap
+\newcommand{\RxNewNoSynUnseen}{62} % Scaffold 2.x: share of its non-syntax breaks unseen
+\newcommand{\RxNewNoSynUnseenCI}{50--75} % Same, task bootstrap
+\newcommand{\RxNewNoSynEndUnseenN}{13} % Scaffold 2.x: runs ending on an unseen non-syntax break
+\newcommand{\RxNewNoSynEndUnseen}{2.7} % Scaffold 2.x: share of its runs ending on an unseen non-syntax break
+\newcommand{\RxNewNoSynEndUnseenCI}{0.8--5.0} % Same, task bootstrap
+\newcommand{\RxFirstEditRuns}{1,522} % Kept runs with at least one edit (the first-edit exposure is undefined for the rest)
+\newcommand{\RxExposureFirstEditCI}{12.8--21.1} % \ExposureFirstEdit, task bootstrap
+\newcommand{\RxPairAFirstEdit}{38.1} % First-edit exposure of 20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct (40 runs; cf. \PairAFirstEditExposure)
+\newcommand{\RxPairAFirstEditCI}{28.1--48.0} % Same, task bootstrap
+\newcommand{\RxPairBFirstEdit}{13.2} % First-edit exposure of 20250726_mini-v1.0.0_gemini-2.5-pro (39 runs; cf. \PairBFirstEditExposure)
+\newcommand{\RxPairBFirstEditCI}{6.4--21.4} % Same, task bootstrap
+\newcommand{\RxPairFirstEditRatio}{2.9} % Qwen3-Coder first-edit exposure over Gemini 2.5 Pro's (cf. \XtPairRatio for exposure)
+\newcommand{\RxPairFirstEditRatioCI}{1.7--5.7} % Same, task bootstrap
+\newcommand{\RxPairRatioCI}{1.8--6.4} % \XtPairRatio (exposure), task bootstrap, for comparison
+\newcommand{\RxPairsFirstEditTwoFold}{10} % Of the \PairsAlike close pairs, those whose first-edit exposures differ at least two-fold (cf. \PairsTwoFold)
+\newcommand{\RxPairsFirstEditThreeFold}{2} % Same, at least three-fold
+\newcommand{\RxPairsFirstEditMaxRatio}{4.0} % Largest first-edit ratio among them (20260217_mini-v2.0.0_deepseek-3-2-high vs 20260217_mini-v2.0.0_gpt-5-2-high)
+\newcommand{\RxPairsThreeFold}{7} % For comparison: close pairs whose exposures differ at least three-fold
+\newcommand{\RxPairsMaxRatio}{8.9} % For comparison: largest exposure ratio (20260217_mini-v2.0.0_deepseek-3-2-high vs 20260217_mini-v2.0.0_gpt-5-2-high)
+\newcommand{\RxPairsFirstEditSameOrder}{22} % Close pairs in which the model with the higher exposure also has the higher first-edit exposure
+\newcommand{\RxLimitStopRuns}{22} % Kept runs stopped by the step or cost limit (exit status LimitsExceeded, nothing submitted; = summary.json limit_stop_runs)
+\newcommand{\RxLimitStopBrokenRuns}{11} % Of those, runs whose code at the stop is broken
+\newcommand{\RxLimitStopBroken}{50} % Same, share (= \LimitStopBroken)
+\newcommand{\RxLimitStopBrokenCI}{25--75} % Same, task bootstrap (\LimitStopCI is Wilson)
+\newcommand{\RxLimitStopUnseenRuns}{4} % Of the limit-stopped runs left broken, those whose open break is unseen
+\newcommand{\RxLimitStopTasks}{16} % Distinct tasks among the limit-stopped runs
+\newcommand{\RxTransientCI}{32--45} % \RvTransient (breaks repaired by the very next command that changes the code), task bootstrap
+\newcommand{\RxLastingRunsCI}{20--32} % \RvLastingRuns, task bootstrap
+\newcommand{\RxLastingUnseenCI}{44--60} % \RvLastingUnseen, task bootstrap
+\newcommand{\RxLastingBreaks}{740} % Breaks that outlast the next edit (1 - \RvTransient of \Breaks)
+\newcommand{\RxTableModels}{41} % Rows of the per-model table (table_models.tex)
+\newcommand{\RxTableModelsOld}{28} % Of them, scaffold 1.x
+\newcommand{\RxTableModelsNew}{13} % Of them, scaffold 2.x
+\newcommand{\RxNoSynN}{605} % Breaks that are not syntax errors (main runs)
+\newcommand{\RxNoSynLoad}{123} % Of them, load breaks: a test file can no longer run (failing import, module-level error)
+\newcommand{\RxNoSynTest}{482} % Of them, test breaks: a previously passing test fails
+\newcommand{\RxNoSynSkipOnly}{0} % Of them, breaks whose only symptom is a skipped test
+\newcommand{\RxNoSynOpen}{139} % Of them, breaks still open when the run ends
+\newcommand{\RxNoSynTestShare}{80} % Share of non-syntax breaks that are test breaks
+\newcommand{\RxJSRecall}{79} % Table II: Sonnet recall at the natural unseen/seen mix (analyse3.py's 0.55/0.45 of the rounded shares), for comparison
+\newcommand{\RxJORecall}{84} % Table II: Opus recall at the natural unseen/seen mix (analyse3.py's 0.55/0.45 of the rounded shares), for comparison
+\newcommand{\RxSynCheckUnseen}{34} % Table II sample: a perfect syntax check alone, share of its 148 unseen commands flagged (51)
+\newcommand{\RxSynCheckSeen}{50} % Table II sample: a perfect syntax check alone, share of its 40 seen commands flagged (20)
+\newcommand{\RxSynCheckClean}{0} % Table II sample: a perfect syntax check alone, share of its 100 clean commands flagged (0)
+\newcommand{\RxSynCheckRecall}{41} % a perfect syntax check alone: recall at the natural unseen/seen mix (analyse3.py)
+\newcommand{\RxSynCheckRecallCI}{32--52} % Same, task bootstrap over the 37 sampled tasks
+\newcommand{\RxSynCheckPrec}{100} % a perfect syntax check alone: implied precision at the natural break rate (0.0988; analyse3.py)
+\newcommand{\RxSynOrJSUnseen}{80} % Table II sample: syntax check, then Sonnet on the rest, share of its 148 unseen commands flagged (119)
+\newcommand{\RxSynOrJSSeen}{85} % Table II sample: syntax check, then Sonnet on the rest, share of its 40 seen commands flagged (34)
+\newcommand{\RxSynOrJSClean}{12} % Table II sample: syntax check, then Sonnet on the rest, share of its 100 clean commands flagged (12)
+\newcommand{\RxSynOrJSRecall}{82} % syntax check, then Sonnet on the rest: recall at the natural unseen/seen mix (analyse3.py)
+\newcommand{\RxSynOrJSRecallCI}{74--91} % Same, task bootstrap over the 37 sampled tasks
+\newcommand{\RxSynOrJSPrec}{43} % syntax check, then Sonnet on the rest: implied precision at the natural break rate (0.0988; analyse3.py)
+\newcommand{\RxSynOrJSPrecCI}{31--56} % Same, analyse3.py's interval (Wilson on the false-alarm rate only)
+\newcommand{\RxSynOrJSPrecTaskCI}{31--63} % Same, task bootstrap over the 37 sampled tasks (all three flag rates vary)
+\newcommand{\RxSynOrJOUnseen}{86} % Table II sample: syntax check, then Opus on the rest, share of its 148 unseen commands flagged (128)
+\newcommand{\RxSynOrJOSeen}{92} % Table II sample: syntax check, then Opus on the rest, share of its 40 seen commands flagged (37)
+\newcommand{\RxSynOrJOClean}{12} % Table II sample: syntax check, then Opus on the rest, share of its 100 clean commands flagged (12)
+\newcommand{\RxSynOrJORecall}{89} % syntax check, then Opus on the rest: recall at the natural unseen/seen mix (analyse3.py)
+\newcommand{\RxSynOrJORecallCI}{84--94} % Same, task bootstrap over the 37 sampled tasks
+\newcommand{\RxSynOrJOPrec}{45} % syntax check, then Opus on the rest: implied precision at the natural break rate (0.0988; analyse3.py)
+\newcommand{\RxSynOrJOPrecCI}{33--58} % Same, analyse3.py's interval (Wilson on the false-alarm rate only)
+\newcommand{\RxSynOrJOPrecTaskCI}{30--73} % Same, task bootstrap over the 37 sampled tasks (all three flag rates vary)
+\newcommand{\RxSynCheckBreaksFlagged}{71} % Sampled break commands that start a syntax-error break (of 188)
+\newcommand{\RxSynCheckRecallAll}{50.8} % A perfect syntax check's recall on all \RvOnsetEdits{} break-starting edits on clean code (504 are syntax errors)
+\newcommand{\RxSampleUnseenSyn}{34} % Table II sample: share of its unseen break commands that are syntax errors
+\newcommand{\RxPopUnseenSyn}{47} % All unseen breaks that start on clean code: share that are syntax errors
+\newcommand{\RxSynOrJSRecallStrat}{85} % Syntax check, then Sonnet: recall re-weighted to the natural mix of seen/unseen x syntax/other among break-starting edits
+\newcommand{\RxSynOrJSPrecStrat}{44} % Same, implied precision at the natural break rate (unrounded rates)
+\newcommand{\RxSynOrJORecallStrat}{91} % Syntax check, then Opus: recall re-weighted to the natural mix of seen/unseen x syntax/other among break-starting edits
+\newcommand{\RxSynOrJOPrecStrat}{45} % Same, implied precision at the natural break rate (unrounded rates)
+\newcommand{\RxOnlyRegRuns}{51} % Failed runs whose final code passes every fix test and fails a previously passing test
+\newcommand{\RxOnlyRegUnsubmitted}{2} % Of them, runs that submitted nothing (stopped)
+\newcommand{\RxNoAnthUnseenCleanMax}{3.3} % Largest change in a judge's flag rate on unseen breaks or clean edits, runs by Anthropic agents left out (points)
+\newcommand{\RxNoAnthSeenMax}{6.5} % Largest change on seen breaks (points)
+\newcommand{\RxNoAnthSeenN}{37} % Seen-break commands left after leaving those runs out

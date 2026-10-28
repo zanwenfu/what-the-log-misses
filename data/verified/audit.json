@@ -1,0 +1,2 @@
+{"rounds": 4, "breaks": 81, "last_agree": 19, "last_total": 20,
+ "note": "rounds 1-3: 21 + 20 + 20 breaks; round 4 (blind, seeds 4404/4405, after the colour fix and re-test): 19 of 20 log labels agree; entry 3 disagrees only because the dossier shows the onset state's error lines, while the rule reads every state of the break (the auditor notes it would be SEEN on that reading)"}

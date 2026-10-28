@@ -1,0 +1,15 @@
+{
+ "edits_on_clean_code": 10037,
+ "onsets": 992,
+ "flagged": 8357,
+ "flag_rate": 0.8326193085583342,
+ "precision": 0.11068565274620079,
+ "recall": 0.9324596774193549,
+ "base_rate": 0.09883431304174554,
+ "table": {
+  "clean/flagged": 7432,
+  "clean/tested": 1613,
+  "onset/flagged": 925,
+  "onset/tested": 67
+ }
+}

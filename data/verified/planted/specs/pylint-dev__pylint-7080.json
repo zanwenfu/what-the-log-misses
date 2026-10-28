@@ -1,0 +1,33 @@
+{
+ "instance_id": "pylint-dev__pylint-7080",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 3,
+    "kind": "test"
+   },
+   {
+    "onset_cmd": 4,
+    "repair_cmd": 5,
+    "kind": "load"
+   },
+   {
+    "onset_cmd": 6,
+    "repair_cmd": null,
+    "kind": "test"
+   }
+  ],
+  "exposure": "5/8"
+ },
+ "commands": [
+  "grep -n 'full_version' pylint/lint/run.py",
+  "sed -i 's/print(full_version)/print(\"planted\")/' pylint/lint/run.py",
+  "git checkout -- pylint/lint/run.py",
+  "printf 'def broken(:\\n' >> pylint/lint/run.py",
+  "git checkout -- pylint/lint/run.py",
+  "sed -i 's/if linter.config.exit_zero:/if not linter.config.exit_zero:/' pylint/lint/run.py",
+  "git status --short",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

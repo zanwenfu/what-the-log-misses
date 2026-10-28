@@ -1,0 +1,34 @@
+{
+ "instance_id": "astropy__astropy-12907",
+ "expected": {
+  "intervals": [
+   {
+    "onset_cmd": 2,
+    "repair_cmd": 4,
+    "kind": "test"
+   },
+   {
+    "onset_cmd": 4,
+    "repair_cmd": 6,
+    "kind": "load"
+   },
+   {
+    "onset_cmd": 6,
+    "repair_cmd": 7,
+    "kind": "test"
+   }
+  ],
+  "exposure": "5/9"
+ },
+ "commands": [
+  "ls astropy/modeling/ | head -20",
+  "sed -i 's/result = np.ones((left_outputs, left_inputs))/result = np.zeros((left_outputs, left_inputs))/' astropy/modeling/separable.py",
+  "grep -n 'np.zeros((left_outputs' astropy/modeling/separable.py",
+  "printf 'def broken(:\\n' >> astropy/modeling/separable.py",
+  "tail -n 3 astropy/modeling/separable.py",
+  "sed -i '$ d' astropy/modeling/separable.py",
+  "sed -i 's/result = np.zeros((left_outputs, left_inputs))/result = np.ones((left_outputs, left_inputs))/' astropy/modeling/separable.py",
+  "git status --short",
+  "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && git add -A && git diff --cached"
+ ]
+}

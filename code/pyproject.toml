@@ -1,0 +1,102 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "replaykit"
+version = "0.2.0"
+description = "Replay of published coding-agent runs with a test after every command."
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Zanwen Fu" }]
+keywords = ["agents", "llm", "orchestration", "harness", "agent-os"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+# Upper bounds are not caution, they are a correctness requirement. With
+# `anthropic>=0.40.0` alone, a fresh machine installed 1.0.0 -- a major
+# version that removed `temperature` from Messages.create() -- and every
+# planner call died with a TypeError while the laptop that developed this ran
+# 0.96.0 and was fine. Two machines, different code, and which numbers you get
+# depends on the day you ran `pip install`. requirements-brains-lock.txt records
+# the current Linux regression stack; requirements-lock.txt preserves the older
+# legacy experiment environment for historical reproducibility.
+dependencies = [
+    "anthropic>=0.90,<1.0",
+    "click>=8.1,<9",
+    "rich>=13.7,<15",
+    "gitpython>=3.1.43,<4",
+    "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=3.0,<4"]
+# The brain layer only. Kept optional so the memory layer stays importable
+# without it -- tests/test_package_isolation.py holds that boundary.
+brains = ["claude-agent-sdk==0.2.152"]
+# What hosted agents' own modules import (replaykit.agents). The agents themselves
+# are installed without dependencies from requirements-agents.txt. The second
+# line is what SWE-agent's modules and LiteLLM (which they import, and which
+# would replace openai if installed with its own dependencies) need at import.
+agents = ["jinja2>=3.1,<4", "platformdirs>=4,<5", "pyyaml>=6,<7",
+          "simple-parsing>=0.1.6,<0.2", "tenacity>=8,<10", "unidiff>=0.7,<2", "tiktoken>=0.7,<1",
+          "tokenizers>=0.20,<1", "fastuuid>=0.12,<1", "aiohttp>=3.10,<4", "ghapi>=1,<3", "numpy>=1.26,<3"]
+dev = [
+    "pytest>=8.0", "pytest-xdist>=3,<4",
+    "ruff>=0.5",
+    # mini-swe-agent's own model class, run beside the harness's in a comparison test.
+    "tenacity>=8,<10",
+]
+# The recovery study's figures (scripts/recovery_figures.py).
+figures = ["matplotlib>=3.8,<4"]
+# Everything the multi-process runtime can use: both worker harnesses.
+all = ["openai>=3.0,<4", "claude-agent-sdk==0.2.152"]
+
+[project.urls]
+
+[tool.setuptools]
+# Ship the licence, the notice and the licence of the vendored code with it.
+license-files = ["LICENSE", "NOTICE", "LICENSES/*"]
+
+[tool.setuptools.packages.find]
+include = ["replaykit*"]
+exclude = ["tests*", "examples*"]
+
+[tool.setuptools.package-data]
+# SWE-agent's configuration and tool bundles, uploaded into the task container as they are.
+"replaykit.agents" = ["swe_agent_files/**/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# SWE-agent's configuration and tool bundles, and AgentRewind's agent-facing code, byte for byte as
+# upstream ships them.
+extend-exclude = ["replaykit/agents/swe_agent_files"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Runnable scripts that adjust sys.path before importing replaykit, so they work
+# both via `python <path>` and `python -m ...`.
+"examples/refactor_demo/simulate.py" = ["E402", "I001"]
+"scripts/*.py" = ["E402"]
+# Vendored verbatim from the SWE-bench harness so the regexes stay diffable
+# against upstream. Auditability is the entire point of these files, and a
+# reformat that "modernises" an import or collapses a multi-line condition
+# destroys the line-for-line correspondence a reviewer needs to check them.
+"replaykit/benchmarks/swebench_log.py" = ["UP", "SIM", "B", "RUF", "E"]
+"replaykit/benchmarks/swebench_log_multilingual.py" = ["UP", "SIM", "B", "RUF", "E"]
+"replaykit/benchmarks/swebench_specs.py" = ["UP", "SIM", "B", "RUF", "E"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
