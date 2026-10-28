@@ -19,7 +19,7 @@ ap.add_argument("--redo-unanswered", action="store_true", help="re-ask runs whos
 args = ap.parse_args()
 sys.path.insert(0, args.repo)
 import importlib.util  # noqa: E402
-from taste.benchmarks.public_trajectories import parse_trajectory  # noqa: E402
+from replaykit.benchmarks.public_trajectories import parse_trajectory  # noqa: E402
 spec = importlib.util.spec_from_file_location("rep", f"{args.repo}/scripts/public_replay_report.py")
 rep = importlib.util.module_from_spec(spec); sys.modules["rep"] = rep; spec.loader.exec_module(rep)
 MODEL = {"sonnet": "global.anthropic.claude-sonnet-5-5", "opus": "global.anthropic.claude-opus-5-5"}[args.model]

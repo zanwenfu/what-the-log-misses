@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use these labels or this code, please cite the paper."
+title: "What the Log Misses: replication package"
+authors:
+  - family-names: Fu
+    given-names: Zanwen
+    affiliation: Duke University
+repository-code: "https://github.com/zanwenfu/what-the-log-misses"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "What the Log Misses: Coding Agents Break Passing Tests Mid-Run, Often Unseen"
+  authors:
+    - family-names: Fu
+      given-names: Zanwen
+      affiliation: Duke University
+  year: 2026

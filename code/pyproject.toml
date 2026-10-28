@@ -9,7 +9,7 @@ description = "Replay of published coding-agent runs with a test after every com
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Zanwen Fu" }]
-keywords = ["agents", "llm", "orchestration", "harness", "agent-os"]
+keywords = ["coding agents", "swe-bench", "replay", "regression testing"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -20,14 +20,7 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-# Upper bounds are not caution, they are a correctness requirement. With
-# `anthropic>=0.40.0` alone, a fresh machine installed 1.0.0 -- a major
-# version that removed `temperature` from Messages.create() -- and every
-# planner call died with a TypeError while the laptop that developed this ran
-# 0.96.0 and was fine. Two machines, different code, and which numbers you get
-# depends on the day you ran `pip install`. requirements-brains-lock.txt records
-# the current Linux regression stack; requirements-lock.txt preserves the older
-# legacy experiment environment for historical reproducibility.
+# Upper bounds keep a fresh install on the versions the code was tested with.
 dependencies = [
     "anthropic>=0.90,<1.0",
     "click>=8.1,<9",
@@ -37,6 +30,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Replaying runs: Docker and its Python client (the scripts in scripts/ drive the SWE-bench images).
+replay = ["docker>=7,<8"]
 openai = ["openai>=3.0,<4"]
 # The brain layer only. Kept optional so the memory layer stays importable
 # without it -- tests/test_package_isolation.py holds that boundary.

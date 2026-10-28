@@ -5,7 +5,7 @@ SP, REPO = Path(sys.argv[1]), Path(sys.argv[2])
 sys.path.insert(0, str(REPO))
 spec = importlib.util.spec_from_file_location("rep", REPO / "scripts/public_replay_report.py")
 rep = importlib.util.module_from_spec(spec); sys.modules["rep"] = rep; spec.loader.exec_module(rep)
-from taste.benchmarks.public_trajectories import parse_trajectory
+from replaykit.benchmarks.public_trajectories import parse_trajectory
 csv.field_size_limit(sys.maxsize)
 subs = {s["name"]: s for s in json.load(open(SP / "pubtraj/submissions.json"))["submissions"]}
 have = {(p.parent.name, p.name[: -len(".traj.json")]) for p in (SP / "judge_trajs").glob("*/*.traj.json")}

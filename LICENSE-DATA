@@ -1,0 +1,7 @@
+The labels, tables and other data in this repository (data/, humancheck/, judge/ results, paper/numbers*.tex and
+paper/table_*.tex) are licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+They contain short excerpts of the published SWE-bench leaderboard runs (the human-check cards in humancheck/*.html,
+the judge inputs and answers in judge/, and data/verified/extras_machine.json); those excerpts remain the work of the
+runs' submitters and are included only as needed to check the labels.

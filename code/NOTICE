@@ -1,0 +1,9 @@
+What the Log Misses: replication package
+Copyright 2026 Zanwen Fu
+
+The code is licensed under the Apache License 2.0 (LICENSE); the data under CC BY 4.0 (LICENSE-DATA).
+
+This package includes code and scripts from SWE-bench (https://github.com/SWE-bench/SWE-bench), licensed under the
+MIT License (LICENSES/SWE-bench-MIT.txt): the log parsers and test specifications in
+code/replaykit/benchmarks/swebench_log.py, swebench_log_multilingual.py and swebench_specs.py, and the per-task test
+scripts in data/multilingual/scripts/.

@@ -11,7 +11,7 @@ S, REPO = Path(sys.argv[1]), Path(sys.argv[2])
 sys.path.insert(0, str(REPO))
 spec = importlib.util.spec_from_file_location("rep", REPO / "scripts/public_replay_report.py")
 rep = importlib.util.module_from_spec(spec); sys.modules["rep"] = rep; spec.loader.exec_module(rep)
-from taste.benchmarks.public_trajectories import parse_trajectory
+from replaykit.benchmarks.public_trajectories import parse_trajectory
 csv.field_size_limit(sys.maxsize)
 subs = {s["name"]: s for s in json.load(open(S / "ml/m1copy/submissions.json"))["submissions"]}
 ERR = re.compile(r"(\w*Error\b|\w*Exception\b|Fatal error|Parse error|Traceback|Cannot find module|uninitialized constant|"

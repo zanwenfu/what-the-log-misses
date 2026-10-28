@@ -11,7 +11,7 @@ only = [int(x) for x in sys.argv[6:]]
 sys.path.insert(0, str(REPO))
 spec = importlib.util.spec_from_file_location("rep", REPO / "scripts/public_replay_report.py")
 rep = importlib.util.module_from_spec(spec); sys.modules["rep"] = rep; spec.loader.exec_module(rep)
-from taste.benchmarks.public_trajectories import parse_trajectory
+from replaykit.benchmarks.public_trajectories import parse_trajectory
 subs = {s["name"]: s for s in json.load(open(SP / "ml/m1copy/submissions.json"))["submissions"]}
 pick = json.load(open(SP / "ml/cards_pick.json"))
 random.Random(2610233).shuffle(pick)          # version 1's order: card n of version 1 is pick[n - 1]

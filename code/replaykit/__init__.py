@@ -1,4 +1,7 @@
-"""Agent OS: a git-native harness for long-running agents.
+"""replaykit: replay of published coding-agent runs, with the tests run after every command.
+
+The package comes from a larger agent harness; this study uses the modules under replaykit.benchmarks and the scripts
+in scripts/. The rest is kept so those modules import as they did when the labels were made.
 
 Public surface:
     from replaykit import Kernel, Memory, agent, tool

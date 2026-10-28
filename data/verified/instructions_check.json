@@ -1,0 +1,340 @@
+{
+ "summary": {
+  "verified": {
+   "entries": 41,
+   "workflow": 41,
+   "asks_existing_tests": 0
+  },
+  "multilingual": {
+   "entries": 13,
+   "workflow": 13,
+   "asks_existing_tests": 0
+  }
+ },
+ "entries": [
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_claude-4-5-haiku",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_claude-4-5-opus",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_claude-4-5-sonnet",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_claude-4-6-opus",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_deepseek-3-2",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-flash",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_gemini-3-pro",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_glm-5",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-2-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_gpt-5-mini",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260213_mini-v2.0.0a0_kimi-k2-5",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260216_mini-v2.0.0a0_minimax-2-5",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "multilingual",
+   "submission": "20260220_mini-v2.0.0_gpt-5-2-codex",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250726_mini-v1.0.0_claude-sonnet-4-20250514",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250726_mini-v1.0.0_gemini-2.5-flash",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250726_mini-v1.0.0_gemini-2.5-pro",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250726_mini-v1.0.0_gpt-4.1-2025-04-14",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250726_mini-v1.0.0_o3-2025-04-16",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250726_mini-v1.0.0_o4-mini-2025-04-16",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250802_mini-v1.0.0_claude-4-opus-20250514",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250807_mini-v1.7.0_gpt-5-mini",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250807_mini-v1.7.0_gpt-5-nano",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250807_mini-v1.7.0_gpt-5",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250807_mini-v1.7.0_gpt-oss-120b",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250807_mini-v1.7.0_kimi-k2-instruct",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250822_mini-v1.9.1_glm-4.5",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20250929_mini-v1.13.3_sonnet-4-5-20250929",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251118_mini-v1.15.0_gemini-3-pro-preview-20251118",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251120_mini-v1.15.0_gpt-5.1-2025-11-13",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251124_mini-v1.16.0_claude-opus-4-5-20251101",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251124_mini-v1.16.0_gpt-5.1-codex",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251124_mini-v1.17.0_minimax-m2",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251201_mini-v1.17.1_deepseek-v3.2-reasoner",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251201_mini-v1.17.1_glm-4.6",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251209_mini-v1.17.2_devstral-2512",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251209_mini-v1.17.2_devstral-small-2512",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251210_mini-v1.17.2_kimi-k2-thinking",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251211_mini-v1.17.2_gpt-5.2-2025-12-11-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20251211_mini-v1.17.2_gpt-5.2-2025-12-11",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_claude-4-5-haiku-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_claude-4-5-opus-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_claude-4-5-sonnet-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_claude-4-6-opus",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_deepseek-3-2-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_gemini-3-flash-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_glm-5-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_gpt-5-2-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_gpt-5-mini",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_kimi-k2-5-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260217_mini-v2.0.0_minimax-2-5-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260226_mini-v2.0.0_gemini-3-pro-high",
+   "workflow": true,
+   "asks_existing_tests": false
+  },
+  {
+   "board": "verified",
+   "submission": "20260901_mini-v2.4.2_gemini-3-5-flash",
+   "workflow": true,
+   "asks_existing_tests": false
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+% Third review round (paper/review3_numbers.py): every value recomputed from the package's tables.
+\newcommand{\RyRanTestsBreaks}{114} % breaks during which a test runner ran tests
+\newcommand{\RyRanTestsShare}{10} % the same, % of breaks
+\newcommand{\RySawFailureBreaks}{101} % of all breaks, a test run reported a failure
+\newcommand{\RyNamedOnlySeen}{430} % seen breaks shown only by other output naming the broken test or printing its error
+\newcommand{\RyUnseenRepaired}{422} % unseen breaks that ended with every test passing
+\newcommand{\RyEntryUnseenMedian}{59} % median over entries of the share of breaks unseen
+\newcommand{\RyEntriesHalfUnseen}{28} % entries with at least half their breaks unseen
+\newcommand{\RyEntriesWithBreaks}{41} % entries with at least one break
+\newcommand{\RyUnseenOpenShare}{19} % % of unseen breaks still open at the end
+\newcommand{\RySeenOpenShare}{12} % % of seen breaks still open at the end
+\newcommand{\RyEndBrokenRuns}{191} % kept runs that end on broken code
+\newcommand{\RyEndSeenRuns}{65} % of those, runs whose log showed the break they end on
+\newcommand{\RyOnlyRegSubRuns}{49} % kept runs that submitted final code failing only a previously passing test
+\newcommand{\RyOnlyRegSubShare}{3.1} % the same, % of all kept runs
+\newcommand{\RyOnlyRegSubShareCI}{1.5--5.1} % task bootstrap
+\newcommand{\RyOnlyRegSubShareNew}{1.5} % the same among 2.x runs
+\newcommand{\RyOnlyRegSubShareNewCI}{0.2--3.0} % task bootstrap
+\newcommand{\RyShortBreakShare}{79} % % of breaks lasting at most 12 commands
+\newcommand{\RyShortOpen}{100} % breaks still open at the end that last at most 12 commands
+\newcommand{\RyBreakAnyCITwo}{28--45} % runs that break, tasks and entries resampled
+\newcommand{\RyUnseenCITwo}{46--66} % breaks unseen, tasks and entries resampled
+\newcommand{\RyEndUnseenCITwo}{4.4--12.8} % runs ending on an unseen break, tasks and entries resampled
+\newcommand{\RySameOldUnseen}{45} % same six models under 1.x: % of breaks unseen, shared tasks
+\newcommand{\RySameOldUnseenK}{60} % same, unseen breaks under 1.x
+\newcommand{\RySameOldUnseenN}{133} % same, breaks under 1.x
+\newcommand{\RySameNewUnseen}{72} % same six models under 2.x: % of breaks unseen, shared tasks
+\newcommand{\RySameNewUnseenK}{71} % same, unseen breaks under 2.x
+\newcommand{\RySameNewUnseenN}{99} % same, breaks under 2.x
+\newcommand{\RyGraded}{1,510} % kept runs whose replayed final patch we graded with SWE-bench's grader
+\newcommand{\RyGradeSame}{1,483} % replay's tests find exactly the grader's failing previously passing tests
+\newcommand{\RyGradeOursOnly}{1} % replay's tests find a failure the grader does not
+\newcommand{\RyGradeOfficialOnly}{21} % the grader finds a failure replay's tests miss (16 of 21 on matplotlib-23412)
+\newcommand{\RyGradeDifferent}{5} % both find failures, but different ones
+\newcommand{\RyBaseRunsMin}{40} % fewest replayed runs per task (each tests the starting code once)
+\newcommand{\RyFlakyTests}{1} % tests excluded because they failed on some run's starting code
+\newcommand{\RyFlakyTasks}{1} % tasks with such a test
+\newcommand{\RyBothModels}{12} % models in both samples (2.x on Verified; reasoning settings may differ)
+\newcommand{\RyBothVerBreak}{25} % their Verified runs that break, %
+\newcommand{\RyBothMLBreak}{36} % their Multilingual runs that break, %
+\newcommand{\RyBothMLHigher}{10} % of those models, break more often on Multilingual
+\newcommand{\RyNewPairAResolve}{70.0} % 20260217_mini-v2.0.0_deepseek-3-2-high: leaderboard resolve rate, %
+\newcommand{\RyNewPairAExposure}{10.7} % 20260217_mini-v2.0.0_deepseek-3-2-high: exposure, %
+\newcommand{\RyNewPairBResolve}{72.8} % 20260217_mini-v2.0.0_gpt-5-2-high: leaderboard resolve rate, %
+\newcommand{\RyNewPairBExposure}{1.2} % 20260217_mini-v2.0.0_gpt-5-2-high: exposure, %
+\newcommand{\RyPairEndBrokenA}{7} % Qwen3-Coder runs ending broken, shared tasks
+\newcommand{\RyPairEndBrokenB}{6} % Gemini 2.5 Pro runs ending broken, shared tasks
+\newcommand{\RyMLThirdAgree}{15} % third pass over all Multilingual cards, rule written out: agreements
+\newcommand{\RyMLThirdKappa}{0.50} % its Cohen's kappa
+\newcommand{\RyMLThirdUnseenRuleSeen}{3} % its cards called unseen that the rule calls seen

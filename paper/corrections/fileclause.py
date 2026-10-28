@@ -15,7 +15,7 @@ S, REPO, BENCH = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]
 sys.path.insert(0, str(REPO))
 spec = importlib.util.spec_from_file_location("rep", REPO / "scripts/public_replay_report.py")
 rep = importlib.util.module_from_spec(spec); sys.modules["rep"] = rep; spec.loader.exec_module(rep)
-from taste.benchmarks.public_trajectories import parse_trajectory
+from replaykit.benchmarks.public_trajectories import parse_trajectory
 csv.field_size_limit(sys.maxsize)
 ML = BENCH == "ml"
 REPORT = S / ("ml/report-ml" if ML else "pubtraj/report-final4")

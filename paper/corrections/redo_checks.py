@@ -4,7 +4,7 @@ import csv, json, os, re, sys
 from pathlib import Path
 S, REPO = Path(sys.argv[1]), Path(sys.argv[2])
 sys.path.insert(0, str(REPO))
-from taste.benchmarks.public_trajectories import parse_trajectory
+from replaykit.benchmarks.public_trajectories import parse_trajectory
 csv.field_size_limit(sys.maxsize)
 V2 = S / "ml/report-ml-v2"
 subs = {s["name"]: s for s in json.load(open(S / "ml/m1copy/submissions.json"))["submissions"]}
