@@ -61,7 +61,7 @@ python3 paper/ml_numbers.py data/multilingual > out/numbers_ml.tex
 (cd paper && python3 review_numbers.py ../data/verified ../data/multilingual) > out/numbers_review.tex
 python3 paper/extra_numbers.py . > out/numbers_extra.tex
 python3 paper/planted_numbers.py . > out/numbers_planted.tex
-python3 paper/review2_numbers.py . > out/numbers_review2.tex   # also rewrites paper/table_*.tex in place
+python3 paper/review2_numbers.py . > out/numbers_review2.tex   # also rewrites paper/table_*.tex in place (the paper uses table_syntax_era.tex and table_models_column.tex)
 python3 paper/review3_numbers.py . > out/numbers_review3.tex
 for f in out/numbers*.tex; do cmp $f paper/$(basename $f); done
 python3 humancheck/score.py "$(cat humancheck/labels_author.txt)"
