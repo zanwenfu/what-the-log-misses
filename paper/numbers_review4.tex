@@ -1,0 +1,100 @@
+% Fourth review round (paper/review4_numbers.py): every value recomputed from the package's tables.
+\newcommand{\RzSeenNamedOnlyShare}{81} % % of seen breaks shown only by other output naming a broken test or printing its error
+\newcommand{\RzTestedSeen}{105} % breaks during which tests ran that the log showed
+\newcommand{\RzTestedSeenShare}{92} % the same, % of those breaks
+\newcommand{\RzEraOldRanTests}{7} % v1.x entries: % of breaks during which tests ran
+\newcommand{\RzEraOldNamedOnly}{86} % v1.x entries: % of seen breaks shown only by other output
+\newcommand{\RzEraOldSeenByTests}{6} % v1.x entries: % of breaks a test run showed
+\newcommand{\RzEraOldSeenByOther}{40} % v1.x entries: % of breaks only other output showed
+\newcommand{\RzEraOldSyntaxSeenByOther}{50} % v1.x entries: % of syntax-error breaks only other output showed
+\newcommand{\RzEraNewRanTests}{21} % v2.x entries: % of breaks during which tests ran
+\newcommand{\RzEraNewNamedOnly}{50} % v2.x entries: % of seen breaks shown only by other output
+\newcommand{\RzEraNewSeenByTests}{19} % v2.x entries: % of breaks a test run showed
+\newcommand{\RzEraNewSeenByOther}{19} % v2.x entries: % of breaks only other output showed
+\newcommand{\RzEraNewSyntaxSeenByOther}{38} % v2.x entries: % of syntax-error breaks only other output showed
+\newcommand{\RzSameOldSyntaxShare}{61} % same six models under 1.x: % of breaks that are syntax errors
+\newcommand{\RzSameOldSyntaxUnseen}{44} % same, % of syntax errors unseen
+\newcommand{\RzSameOldOtherUnseen}{46} % same, % of other breaks unseen
+\newcommand{\RzSameOldRanTests}{12} % same, % of breaks during which tests ran
+\newcommand{\RzSameOldCmds}{37} % same, commands per run
+\newcommand{\RzSameNewSyntaxShare}{34} % same six models under 2.x: % of breaks that are syntax errors
+\newcommand{\RzSameNewSyntaxUnseen}{71} % same, % of syntax errors unseen
+\newcommand{\RzSameNewOtherUnseen}{72} % same, % of other breaks unseen
+\newcommand{\RzSameNewRanTests}{13} % same, % of breaks during which tests ran
+\newcommand{\RzSameNewCmds}{52} % same, commands per run
+\newcommand{\RzPairsMoreCmds}{19} % close pairs whose more exposed entry takes more commands per run (shared tasks)
+\newcommand{\RzPairsTwoFoldMoreCmds}{10} % of the two-fold pairs, those whose more exposed entry takes more commands per run
+\newcommand{\RzPairsExtraCmds}{16} % median over close pairs: extra commands per run of the more exposed entry
+\newcommand{\RzPairsExtraBroken}{4} % median over close pairs: extra commands per run on broken code
+\newcommand{\RzPairACmds}{75} % Qwen3-Coder: commands per run, tasks shared with Gemini 2.5 Pro
+\newcommand{\RzPairBCmds}{18} % Gemini 2.5 Pro: commands per run, shared tasks
+\newcommand{\RzPairABroken}{37} % Qwen3-Coder: commands per run on broken code, shared tasks
+\newcommand{\RzPairBBroken}{2} % Gemini 2.5 Pro: commands per run on broken code, shared tasks
+\newcommand{\RzRhoCmdsOld}{0.29} % v1.x entries: Spearman rho, exposure vs commands per run
+\newcommand{\RzRhoResCmdsOld}{0.01} % v1.x entries: Spearman rho, resolve rate vs commands per run
+\newcommand{\RzRhoCmdsNew}{0.79} % v2.x entries: Spearman rho, exposure vs commands per run
+\newcommand{\RzRhoResCmdsNew}{0.04} % v2.x entries: Spearman rho, resolve rate vs commands per run
+\newcommand{\RzEndUnseenShort}{83} % runs ending on an unseen break whose break lasts at most 12 commands
+\newcommand{\RzEndUnseenLong}{44} % the same, longer than 12 commands
+\newcommand{\RzNoDeepSeekItems}{29} % sampled commands from runs by DeepSeek agents
+\newcommand{\RzNoDeepSeekOwnMax}{1.4} % largest change in the DeepSeek judge's flag rates with those runs left out (points)
+\newcommand{\RzNoDeepSeekAllMax}{2.9} % the same, over every judge and row
+\newcommand{\RzRhoCallsOld}{0.30} % v1.x entries: Spearman rho, exposure vs the leaderboard's model calls per task (500 tasks)
+\newcommand{\RzRhoDollarsOld}{-0.51} % v1.x entries: Spearman rho, exposure vs the leaderboard's dollars per task (26 priced)
+\newcommand{\RzRhoCallsNew}{0.77} % v2.x entries: Spearman rho, exposure vs the leaderboard's model calls per task (500 tasks)
+\newcommand{\RzRhoDollarsNew}{-0.24} % v2.x entries: Spearman rho, exposure vs the leaderboard's dollars per task (12 priced)
+\newcommand{\RzPairsMoreCalls}{19} % close pairs whose more exposed entry makes more model calls per task on all 500 tasks
+\newcommand{\RzPairACalls}{65} % Qwen3-Coder: the leaderboard's model calls per task
+\newcommand{\RzPairBCalls}{20} % Gemini 2.5 Pro: the leaderboard's model calls per task
+\newcommand{\RzPairADollars}{0.25} % Qwen3-Coder: the leaderboard's dollars per task
+\newcommand{\RzPairBDollars}{0.29} % Gemini 2.5 Pro: the leaderboard's dollars per task
+\newcommand{\RzSameHighOld}{1} % of the six models run under both versions: entries listed as high reasoning under 1.x
+\newcommand{\RzSameHighNew}{5} % the same under 2.x
+\newcommand{\RzEraNewEndUnseenOneIn}{34} % 2026 entries: one run in this many ends on an unseen break
+\newcommand{\RzEntriesPlainShell}{12} % kept 2026 entries run with scaffold 2.0.0 (plain shell)
+\newcommand{\RzBasePyPlain}{81} % % of 2.0.0 runs whose log shows base_python
+\newcommand{\RzPipPlain}{85} % % of 2.0.0 runs whose log shows pip_install
+\newcommand{\RzNoModulePlain}{95} % % of 2.0.0 runs whose log shows no_module
+\newcommand{\RzBasePyLogin}{0} % % of all other runs whose log shows base_python
+\newcommand{\RzPipLogin}{5} % % of all other runs whose log shows pip_install
+\newcommand{\RzNoModuleLogin}{26} % % of all other runs whose log shows no_module
+\newcommand{\RzBasePyShownBreaks}{157} % 2.0.0 breaks whose log shows the base Python before the break
+\newcommand{\RzBasePyShownUnseen}{61} % the same, % unseen
+\newcommand{\RzBasePyNotShownBreaks}{50} % 2.0.0 breaks whose log does not show the base Python before the break
+\newcommand{\RzBasePyNotShownUnseen}{68} % the same, % unseen
+\newcommand{\RzSedEdits}{2,036} % edits on clean code made with sed
+\newcommand{\RzSedBreakRate}{31} % % of them that start a break
+\newcommand{\RzPythonEdits}{2,171} % edits on clean code made with python
+\newcommand{\RzPythonBreakRate}{13} % % of them that start a break
+\newcommand{\RzHeredocEdits}{4,311} % edits on clean code made with heredoc
+\newcommand{\RzHeredocBreakRate}{1} % % of them that start a break
+\newcommand{\RzRhoSedExposure}{0.71} % all 41 entries: Spearman rho, share of edits on clean code made with sed vs exposure
+\newcommand{\RzSedVsPythonEntries}{25} % entries with at least 10 sed and 10 Python edits on clean code
+\newcommand{\RzSedWorseEntries}{19} % of them, entries whose sed edits start breaks more often than their Python edits
+\newcommand{\RzPairASedEdits}{202} % Qwen3-Coder: sed edits on clean code (all its runs)
+\newcommand{\RzPairBSedEdits}{57} % Gemini 2.5 Pro: sed edits on clean code (all its runs)
+\newcommand{\RzPairASedBreak}{46} % Qwen3-Coder: % of its sed edits that start a break
+\newcommand{\RzPairBSedBreak}{19} % Gemini 2.5 Pro: % of its sed edits that start a break
+\newcommand{\RzUntestedSeenShare}{40} % % of breaks during which no test ran that the log still showed (other output)
+\newcommand{\RzFullSGate}{15} % whole runs: % of edits on clean code sonnet flags
+\newcommand{\RzFullOGate}{16} % whole runs: % of edits on clean code opus flags
+\newcommand{\RzFullBase}{8} % whole runs: % of edits on clean code that start a break (chance precision)
+\newcommand{\RzOnlyRegSubDropMin}{2.6} % % of kept runs that submitted code failing only a previously passing test, lowest with one task left out
+\newcommand{\RzOnlyRegSubDropMax}{3.2} % the same, highest
+\newcommand{\RzOnlyRegSubTopTask}{10} % most of those runs from one task (django__django-11490)
+\newcommand{\RzMLRanTestsShare}{12} % Multilingual: % of breaks during which tests ran
+\newcommand{\RzMLTestedSeenShare}{94} % Multilingual: % of those the log showed
+\newcommand{\RzTestedNamedShare}{70} % % of breaks during which tests ran whose log named the broken test or printed its error
+\newcommand{\RzStepGateS}{19} % step-level judge S: % of edits on clean code flagged at the natural break rate
+\newcommand{\RzStepGateO}{19} % step-level judge O: % of edits on clean code flagged at the natural break rate
+\newcommand{\RzRhoSedExposureOld}{0.63} % v1.x entries: Spearman rho, share of clean-code edits made with sed vs exposure
+\newcommand{\RzSedBreakRateOld}{34} % v1.x entries: % of sed edits on clean code that start a break
+\newcommand{\RzPythonBreakRateOld}{15} % v1.x entries: % of Python-script edits on clean code that start a break
+\newcommand{\RzRhoSedExposureNew}{0.40} % v2.x entries: Spearman rho, share of clean-code edits made with sed vs exposure
+\newcommand{\RzSedBreakRateNew}{16} % v2.x entries: % of sed edits on clean code that start a break
+\newcommand{\RzPythonBreakRateNew}{10} % v2.x entries: % of Python-script edits on clean code that start a break
+\newcommand{\RzPairsMoreSed}{16} % close pairs whose more exposed entry makes a larger share of its clean-code edits with sed
+\newcommand{\RzSameOldBreakRuns}{31} % same six models under 1.x: % of runs with a break, shared tasks
+\newcommand{\RzSameNewBreakRuns}{21} % same six models under 2.x: % of runs with a break, shared tasks
+\newcommand{\RzMLToolMissingRuns}{2} % Multilingual runs whose log says the language's toolchain was not found
+\newcommand{\RzMLLogRuns}{266} % Multilingual kept runs read for that check
