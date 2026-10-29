@@ -1,7 +1,7 @@
 # What the Log Misses
 
 Data and code for the preprint **What the Log Misses: Coding Agents Break Passing Tests Mid-Run, Often Unseen**
-(Zanwen Fu, Duke University). The arXiv link will appear here once the preprint is listed.
+(Zanwen Fu, Duke University).
 
 Coding agents are graded by their final patch, and everything else about a run is judged from its log. Both can miss
 a regression. A break the agent repairs before it submits leaves no trace in the patch, and the log shows a break only
