@@ -1,7 +1,8 @@
 # What the Log Misses
 
 Data and code for the preprint **What the Log Misses: Coding Agents Break Passing Tests Mid-Run, Often Unseen**
-(Zanwen Fu, Duke University).
+(Zanwen Fu, Duke University). The paper is on Zenodo at
+[doi.org/10.5281/zenodo.23779131](https://doi.org/10.5281/zenodo.23779131).
 
 Coding agents are graded by their final patch, and everything else about a run is judged from its log. Both can miss
 a regression. A break the agent repairs before it submits leaves no trace in the patch, and the log shows a break only
@@ -71,10 +72,13 @@ paper was built from. Redrawing the figures and replaying runs from scratch are 
 
 ```bibtex
 @misc{fu2026log,
-  title  = {What the Log Misses: Coding Agents Break Passing Tests Mid-Run, Often Unseen},
-  author = {Zanwen Fu},
-  year   = {2026},
-  note   = {Preprint}
+  title     = {What the Log Misses: Coding Agents Break Passing Tests Mid-Run, Often Unseen},
+  author    = {Zanwen Fu},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23779131},
+  url       = {https://doi.org/10.5281/zenodo.23779131},
+  note      = {Preprint}
 }
 ```
 
