@@ -1,6 +1,5 @@
 # The macros the paper's text and tables use (file, name, value).
 numbers.tex	Models	41
-numbers.tex	Unseen	55
 numbers.tex	ReplayDollars	15
 numbers_extra.tex	XtSameModelPairs	6
 numbers_review4.tex	RzSameOldBreakRuns	31
@@ -53,6 +52,7 @@ numbers_ml.tex	MLBreaks	150
 numbers_review3.tex	RyBaseRunsMin	40
 numbers_review3.tex	RyFlakyTests	1
 numbers_review3.tex	RyFlakyTasks	1
+numbers.tex	Unseen	55
 numbers_review.tex	RvVerFileClauseUnseen	52
 numbers.tex	PrintSameNorm	99.3
 numbers.tex	VerdictAgree	95.2
@@ -118,6 +118,7 @@ numbers_extra.tex	XtNoSynEndUnseenRunsN	97
 numbers_extra.tex	XtOnlyRegShare	8.8
 numbers_review.tex	RvFailedOnlyRegression	51
 numbers_extra.tex	XtOnlyRegUnseen	37
+numbers_review3.tex	RyOnlyRegSubRuns	49
 numbers_review3.tex	RyOnlyRegSubShare	3.1
 numbers_review4.tex	RzOnlyRegSubTopTask	10
 numbers_review4.tex	RzOnlyRegSubDropMin	2.6

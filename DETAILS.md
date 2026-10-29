@@ -65,7 +65,7 @@ Comments in the scripts and in `numbers*.tex` keep an earlier draft's label "Tab
 prints as Table III (the judges).
 
 Not every number in `paper/numbers*.tex` appears in the paper: the files define 836 macros and the paper uses
-242, listed in `paper/USED_MACROS.txt`. The others are kept for the record, and a few measure something close to
+243, listed in `paper/USED_MACROS.txt`. The others are kept for the record, and a few measure something close to
 a number in the paper but not the same thing:
 - `\Shipped` (12.5%) is the share of runs *that submitted a patch* whose patch is broken; the paper's 12.3%
   (`\EndBrokenRunsShare`) is the share of *all kept runs* whose final code is broken.
